@@ -16,34 +16,43 @@ public class HexEntryMovingState : HexBaseState
         rotate = false; move = false;
         this.item = item;
 
-        if (item.AllFlexibleIndex.Contains(item.LastId))
+        if (!item.AllFlexibleIndex.Contains(item.LastId))
         {
-            Debug.Log("Yess");
-            neighboursUp = GetNeighboursUpIndexs(item.LastId);
-            neighboursRight = GetNeighboursRightIndexs(item.LastId);
-           
-        }
-        else
-        {
-            Debug.Log("Noo");
+            //Debug.Log("Yess");
+            //neighboursUp = GetNeighboursUpIndexs(item.LastId);
+            //neighboursRight = GetNeighboursRightIndexs(item.LastId);
+
             item.SwitchState(item.rotatingState);
         }
+        //else
+        //{
+        //    Debug.Log("Noo");
+        //    item.SwitchState(item.rotatingState);
+        //}
         //Debug.Log(AllIndexesToMoveForward(4, 6).Count);
     }
     public override void UpdateState(HexStateManager item)
     {
-        
-        item.transform.position = item.World.MousePosition;
-        if (IsItCloser(item.LastId))
-        {
-            Debug.Log("Move " + move + " rot " + rotate);
-            if (move)
-                item.SwitchState(item.movingState);
-            else if (rotate)
-                item.SwitchState(item.rotatingState);
-        }
+        ChangeMode(0.2f, 5);
+
     }
 
+    private void ChangeMode(float offset, float angleOffset)
+    {
+        Vector3 startVec = item.LastMousePos - item.World.transform.position;
+        Vector3 newVec = item.World.MousePosition - item.World.transform.position;
+
+        float diff = startVec.magnitude - newVec.magnitude;
+        float angle = Vector3.Angle(startVec.normalized, newVec.normalized);
+        if (diff > offset || diff < -offset)
+        {
+            item.SwitchState(item.movingState);
+        }
+        else if (angle > angleOffset)
+        {
+            item.SwitchState(item.rotatingState);
+        }
+    }
     private bool IsItCloser(Vector2 index)
     {
         float minDiff = (item.World.MousePosition - item.World.Hexs[index].HexPos).magnitude;
@@ -97,10 +106,7 @@ public class HexEntryMovingState : HexBaseState
             newList.Add(new Vector2(index.x, index.y + 1));
         else
             newList.Add(new Vector2(index.x, 0));
-        for (int i = 0; i < newList.Count; i++)
-        {
-            Debug.Log(newList[i]);
-        }
+
         return newList;
     }
 

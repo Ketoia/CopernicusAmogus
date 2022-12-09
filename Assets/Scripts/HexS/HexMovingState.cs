@@ -13,10 +13,10 @@ public class HexMovingState : HexBaseState
     {
         this.item = item;
         indexesToMoveForward = GetIndexesToMoveForward(item.LastId, item.World.MaxLayer);
-        for (int i = 0; i < indexesToMoveForward.Count; i++)
-        {
-            Debug.Log(indexesToMoveForward[i]);
-        }
+        //for (int i = 0; i < indexesToMoveForward.Count; i++)
+        //{
+        //    Debug.Log(indexesToMoveForward[i]);
+        //}
     }
     public override void UpdateState(HexStateManager item)
     {
