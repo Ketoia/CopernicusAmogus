@@ -41,7 +41,7 @@ public class WorldStateManager : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            List<Vector3> allPos = AddNewLayer(i + 1, 2*(i+1));
+            List<Vector3> allPos = AddNewLayer(i + 1, radius * (i+1));
             for (int x = 0; x < allPos.Count; x++)
             {
                 HexInfo hex = new HexInfo();
@@ -100,7 +100,7 @@ public class WorldStateManager : MonoBehaviour
         mousePosition = ray.GetPoint(dist);
         //mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePositionInScreen.x, 0 , mousePositionInScreen.y));
     }
-    public List<Vector3> AddNewLayer(int row, int radius)
+    public List<Vector3> AddNewLayer(int row, float radius)
     {
         float angle = 60f * Mathf.Deg2Rad;
 
@@ -128,7 +128,7 @@ public class WorldStateManager : MonoBehaviour
         return worldsPoints;
     }
 
-    private Vector3 GetPosOfXY(float angle, int i, int radius)
+    private Vector3 GetPosOfXY(float angle, int i, float radius)
     {
         float angleNow = i * -angle;
         float x = Mathf.Cos(angleNow) * radius;
