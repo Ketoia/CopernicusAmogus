@@ -11,14 +11,11 @@ public class DialogSystem : MonoBehaviour
 
     public Text textName;
     public Text textDialog;
+    public Text textPressToContinue;
     public float textWait = 1;
     public float textWaitBetween = 1;
 
-    public Actor actor_1;
-    public Actor actor_2;
-
-    private bool switcher = false;
-    private bool isFadeout = false;
+    public List<Actor> actors;
 
     public Dialog dialogDebug;
 
@@ -34,7 +31,6 @@ public class DialogSystem : MonoBehaviour
 
     public void StartDialog(Dialog dialog)
     {
-        switcher = true;
         textName.text = "";
         textDialog.text = "";
         StartCoroutine(LerpFadeout(0, 1, 1, fadeout));
@@ -63,8 +59,6 @@ public class DialogSystem : MonoBehaviour
 
         color.a = stop;
         image.color = color;
-
-        isFadeout = true;
     }
 
     private IEnumerator ShowTextName(Actor actor)
@@ -83,34 +77,34 @@ public class DialogSystem : MonoBehaviour
 
         for (int i = 0; i < dialog.Dialogs.Count; i++)
         {
-            if (switcher)
-            {
-                StartCoroutine(ShowTextName(actor_1));
-                actor_1.Show();
-                actor_2.Hide();
-            }
-            else 
-            {
-                StartCoroutine(ShowTextName(actor_2));
-                actor_1.Hide();
-                actor_2.Show();
-            }
+            //Show new Actor
+            Actor ActualActor = actors[dialog.Dialogs[i].actorIndex];
+            StartCoroutine(ShowTextName(ActualActor));
+            ActualActor.Show();
 
             textDialog.text = "";
             yield return new WaitForSeconds(0.5f); //Wait for player to come
-            for (int j = 0; j < dialog.Dialogs[i].Length; j++)
+            for (int j = 0; j < dialog.Dialogs[i].simpleDialog.Length; j++)
             {
-                textDialog.text += dialog.Dialogs[i][j];
+                textDialog.text += dialog.Dialogs[i].simpleDialog[j];
                 yield return new WaitForSeconds(textWait);
             }
 
-            switcher = !switcher;
-            yield return new WaitForSeconds(textWaitBetween);
-            
+            string txt = textPressToContinue.text;
+            textPressToContinue.text = "";
+            textPressToContinue.gameObject.SetActive(true);
+            for (int j = 0; j < txt.Length; j++)
+            {
+                textPressToContinue.text += txt[j];
+                yield return new WaitForSeconds(0.025f);
+            }
+            yield return new WaitUntil(() => Input.anyKeyDown);
+            textPressToContinue.gameObject.SetActive(false);
+            ActualActor.Hide();
+            //yield return new WaitForSeconds(textWaitBetween);
+
         }
 
-        actor_1.Hide();
-        actor_2.Hide();
         textDialog.text = "";
         textName.text = "";
 

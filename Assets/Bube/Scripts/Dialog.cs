@@ -5,8 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Dialog", menuName = "Dialog", order = 1)]
 public class Dialog : ScriptableObject
 {
-    public List<string> Dialogs;
+    public List<DialogProperty> Dialogs;
 
-    public Sprite firstActor;
-    public Sprite SecondActor;
+}
+
+[System.Serializable]
+public struct DialogProperty
+{
+    public string simpleDialog;
+    public int actorIndex;
 }

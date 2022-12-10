@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Dialog_1
   m_EditorClassIdentifier: 
   Dialogs:
-  - Pizzaaa
-  - Pastaaa
-  - Spierdalajaa
-  - fiutaa
-  - Makaronik
-  firstActor: {fileID: 0}
-  SecondActor: {fileID: 0}
+  - simpleDialog: Jeste zwyciesco
+    actorIndex: 0
+  - simpleDialog: A ty nie
+    actorIndex: 1
+  - simpleDialog: A ja tak
+    actorIndex: 2
+  - simpleDialog: A ty nie
+    actorIndex: 1
