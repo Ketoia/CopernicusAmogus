@@ -36,7 +36,14 @@ public class HexMovingState : HexBaseState
 
         Vector2 firstLayerPos = item.V3ToV2(item.World.Hexs[indexesToMoveForward[0]].HexPos);
         Vector2 LastLayerPos = item.V3ToV2(item.World.Hexs[indexesToMoveForward[indexesToMoveForward.Count - 1]].HexPos);
-        Vector2 pos = item.GetIntersectionPointCoordinates(firstVec,firstVec2,firstVec3,perVector);
+        //Vector2 pos = item.GetIntersectionPointCoordinates(firstVec, firstVec2, firstVec3, perVector);
+
+        Vector2 test = indexVec.normalized * Mathf.Clamp(Vector2.Dot(firstVec3, indexVec.normalized), 1, 4);
+        Debug.Log("Vector3 mouse pos: " + firstVec3);
+        Debug.Log("Vector3 ball pos: " + indexVec);
+        Debug.Log("Dot product: " + Vector2.Dot(firstVec3, indexVec));
+
+        Vector2 pos = test; // perVector.normalized * Mathf.Clamp(Vector2.Dot(firstVec3, )
         //float signX = Mathf.Sign(pos.x - firstLayerPos.x);
         //float signY = Mathf.Sign(pos.y - firstLayerPos.y);
         //if (IsVectorNegative(pos, firstLayerPos))
@@ -47,8 +54,8 @@ public class HexMovingState : HexBaseState
         //{
         //    pos = item.V3ToV2(item.World.Hexs[indexesToMoveForward[indexesToMoveForward.Count - 1]].HexPos);
         //}
-       // float a = CalcMultiplayer(pos, Vector2.Dot(mouseVec, indexVec));
-       // Debug.DrawRay(item.World.transform.position, new Vector3(a * pos.x, 0, a * pos.y), Color.green);
+        // float a = CalcMultiplayer(pos, Vector2.Dot(mouseVec, indexVec));
+        // Debug.DrawRay(item.World.transform.position, new Vector3(a * pos.x, 0, a * pos.y), Color.green);
         item.transform.position = new Vector3(pos.x, 0, pos.y);
 
         if (Input.GetMouseButtonUp(0))
