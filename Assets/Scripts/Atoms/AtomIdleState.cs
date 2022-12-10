@@ -12,11 +12,12 @@ public class AtomIdleState : AtomBaseState
         EventManager.AtomRotationEvent += SwitchToRotate;
     }
 
-    private void SwitchToRotate(int layerIndex, int hexIndexY)
+    private void SwitchToRotate(int layerIndex, int hexIndexY, HexRotatingState hexRotatingState)
     {
         if (layerIndex == item.CurrentId.x)
         {
             //Debug.Log("rotate");
+            item.hexRotatingState = hexRotatingState;
             item.PreviousCelestianBodyHexId = new Vector2Int(layerIndex, hexIndexY);
             item.SwitchState(item.rotationState);
         }

@@ -13,8 +13,9 @@ public class AtomStateManager : MonoBehaviour
     public AtomMovingState movingState = new AtomMovingState();
     public AtomRotationState rotationState = new AtomRotationState();
 
-
     private AtomBaseState currentState;
+
+    public HexRotatingState hexRotatingState;
 
     //private List<HexInfo> hexs;
     //private int layerId;

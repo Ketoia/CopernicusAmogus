@@ -1,20 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HexRotatingState : HexBaseState
 {
-    private HexStateManager item;
-    //private Vector2 lastPosIndex;
-    private Vector3 lastPosition;
+    public float getDeltaAngle => startAngle - currentAngle; 
+    public Vector2Int startId;
+    public HexStateManager item;
 
+    //private Vector2 lastPosIndex;
+    private float startAngle = 0;
+    private float currentAngle = 0;
     private List<Vector2Int> indexesToRotate;
+
     public override void EnterState(HexStateManager item)
     {
         this.item = item;
-       // lastPosIndex = item.CurrentId;
+        startId = item.CurrentId;
+        // lastPosIndex = item.CurrentId;
+        startAngle = GetAngle(new Vector2(item.transform.position.x, item.transform.position.z));
         indexesToRotate = item.GetIndexesToRotate(item.CurrentId);
-        EventManager.StartAtomRotationEvent(item.CurrentId.x, item.CurrentId.y);
+        EventManager.StartAtomRotationEvent(item.CurrentId.x, item.CurrentId.y, item.rotatingState);
         Debug.Log("Start " + item.CurrentId);
     }
 
@@ -23,18 +30,52 @@ public class HexRotatingState : HexBaseState
     {
         item.CurrentId = item.GetNearestPoint(indexesToRotate);
 
-        Vector2 pos = item.GetIntersectionPointCoordinates(item.V3ToV2(item.World.MousePosition), item.V3ToV2(item.World.transform.position), item.V3ToV2(item.World.Hexs[item.CurrentId].HexPos), GetNextNearestPoint(item.CurrentId));
+        float scale = 1.5f * item.CurrentId.x;
+        currentAngle = GetAngle(item.V3ToV2(item.World.MousePosition));
+        Vector2 tempPos = RotateByAngle(currentAngle, scale);
 
-        item.transform.position = new Vector3(pos.x, 0, pos.y);
-        
- 
-        
+        //item.transform.position = new Vector3(pos.x, 0, pos.y);
+        item.transform.position = new Vector3(tempPos.x, 0, tempPos.y);
+
         if (Input.GetMouseButtonUp(0))
         {
             EventManager.StartAtomRotationEndEvent(item.CurrentId.y);
             Debug.Log("Koniec " + item.CurrentId);
             item.SwitchState(item.idleState);
         }
+    }
+
+    private Vector2 RotateByAngle(float angle, float scale = 1)
+    {
+        float sqrt3by2 = Mathf.Sqrt(3) / 2;
+        //Set up points
+        Vector2[] points = new Vector2[6];
+        points[0] = new Vector2(1, 0);
+        points[1] = new Vector2(0.5f, sqrt3by2);
+        points[2] = new Vector2(-0.5f, sqrt3by2);
+        points[3] = new Vector2(-1, 0);
+        points[4] = new Vector2(-0.5f, -sqrt3by2);
+        points[5] = new Vector2(0.5f, -sqrt3by2);
+
+        for (int i = 0; i < points.Length; i++)
+        {
+            points[i] *= scale;
+        }
+
+        //Get index by angle
+        int index = (int)(angle / (Mathf.PI * 2) * 6);
+
+        float time = (angle % (Mathf.PI / 3)) / (Mathf.PI / 3);
+
+        Vector2 posOut = Vector2.Lerp(points[index], points[(index + 1) % 6], time);
+        return posOut;
+    }
+
+    private float GetAngle(Vector2 mousePosition)
+    {
+        float angle = Mathf.Atan2(mousePosition.y, mousePosition.x);
+        if (angle < 0) angle += 2 * Mathf.PI;
+        return angle;
     }
 
     //public Vector2 GetNearestPoint()

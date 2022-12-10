@@ -82,7 +82,7 @@ public class HexStateManager : MonoBehaviour
         float diff = (world.MousePosition - world.Hexs[index].HexPos).magnitude;
         for (int i = 0; i < gridIndexes.Count; i++)
         {
-            float newDiff = (world.MousePosition - world.Hexs[gridIndexes[i]].HexPos).magnitude;
+            float newDiff = (transform.position - world.Hexs[gridIndexes[i]].HexPos).magnitude;
             if (newDiff < diff)
             {
                 diff = newDiff;
