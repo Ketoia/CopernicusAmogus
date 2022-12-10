@@ -21,7 +21,7 @@ public class HexRotatingState : HexBaseState
         // lastPosIndex = item.CurrentId;
         startAngle = GetAngle(new Vector2(item.transform.position.x, item.transform.position.z));
         indexesToRotate = item.GetIndexesToRotate(item.CurrentId);
-        EventManager.StartAtomRotationEvent(item.CurrentId.x, item.CurrentId.y);
+        EventManager.StartAtomRotationEvent(item.CurrentId.x, item.CurrentId.y, item.rotatingState);
         //Debug.Log("Start " + item.CurrentId);
     }
 
