@@ -22,7 +22,7 @@ public class AtomRotationState : AtomBaseState
 
     private void SwitchState(int hexIndexY)
     {
-        Debug.Log("Rotation enter2");
+        //Debug.Log("Rotation enter2");
 
         item.UpdateCurrentRotId(hexIndexY);
         item.SwitchState(item.idleState);

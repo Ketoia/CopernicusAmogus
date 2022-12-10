@@ -10,6 +10,7 @@ public class AtomIdleState : AtomBaseState
         this.item = item;
         item.SetPos(item.CurrentId);
         EventManager.AtomRotationEvent += SwitchToRotate;
+        EventManager.AtomMoveEvent += SwitchToMove;
     }
 
     private void SwitchToRotate(int layerIndex, int hexIndexY, HexRotatingState hexRotatingState)
@@ -23,9 +24,13 @@ public class AtomIdleState : AtomBaseState
         }
     }
 
-    private void SwitchToMove(int layerIndex)
+    private void SwitchToMove(Vector2Int hexIndex)
     {
-        item.SwitchState(item.movingState);
+        if (item.World.AllFlexibleIndex.Contains(item.CurrentId) && item.CurrentId.x == hexIndex.x)
+        {
+            item.PreviousCelestianBodyHexId = hexIndex; 
+            item.SwitchState(item.movingState);
+        }
     }
 
     public override void UpdateState(AtomStateManager item)
@@ -50,5 +55,6 @@ public class AtomIdleState : AtomBaseState
     public override void ExitState(AtomStateManager item)
     {
         EventManager.AtomRotationEvent -= SwitchToRotate;
+        EventManager.AtomMoveEvent -= SwitchToMove;
     }
 }
