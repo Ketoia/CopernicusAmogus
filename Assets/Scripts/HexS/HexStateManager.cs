@@ -19,10 +19,10 @@ public class HexStateManager : MonoBehaviour
     //private List<HexInfo> hexs;
     //private Vector2 iD;
     private Vector3 lastMousePos;
-    private Vector2 lastId;
+    private Vector2 currentId;
     private List<Vector2> allFlexibleIndex;
 
-    public Vector2 LastId { get { return lastId; } set { lastId = value; } }
+    public Vector2 CurrentId { get { return currentId; } set { currentId = value; } }
     public Vector3 LastMousePos { get { return lastMousePos; } set { lastMousePos = value; } }
     public List<Vector2> AllFlexibleIndex => allFlexibleIndex;
     public WorldStateManager World => world;
@@ -31,7 +31,7 @@ public class HexStateManager : MonoBehaviour
     void Start()
     {
         allFlexibleIndex = AllIndexesToMoveForward(world.MaxLayer, world.MaxPizzaSlices);
-        lastId = startPosition;
+        currentId = startPosition;
         currentState = idleState;
 
         currentState.EnterState(this);
@@ -74,7 +74,32 @@ public class HexStateManager : MonoBehaviour
         currentState.OnCollisionExit(this, other);
     }
 
+    public Vector2 GetNearestPoint(List<Vector2> gridIndexes)
+    {
+        Vector2 index = currentId;
+        float diff = (world.MousePosition - world.Hexs[index].HexPos).magnitude;
+        for (int i = 0; i < gridIndexes.Count; i++)
+        {
+            float newDiff = (world.MousePosition - world.Hexs[gridIndexes[i]].HexPos).magnitude;
+            if (newDiff < diff)
+            {
+                diff = newDiff;
+                index = gridIndexes[i];
+            }
+        }
+        return index;
+    }
 
+
+    public Vector2 V3ToV2(Vector3 vector)
+    {
+        return new Vector2(vector.x, vector.z);
+    }
+
+    public Vector3 V2ToV3(Vector2 vector)
+    {
+        return new Vector3(vector.x, 0, vector.y);
+    }
 
     private List<Vector2> AllIndexesToMoveForward(int layersAmount, int pizzaSlices)
     {
@@ -88,5 +113,26 @@ public class HexStateManager : MonoBehaviour
         }
 
         return newList;
+    }
+
+    public Vector2 GetIntersectionPointCoordinates(Vector2 A1, Vector2 A2, Vector2 B1, Vector2 B2/*, out bool found*/)
+    {
+        float tmp = (B2.x - B1.x) * (A2.y - A1.y) - (B2.y - B1.y) * (A2.x - A1.x);
+
+        if (tmp == 0)
+        {
+            // No solution!
+            //found = false;
+            return Vector2.zero;
+        }
+
+        float mu = ((A1.x - B1.x) * (A2.y - A1.y) - (A1.y - B1.y) * (A2.x - A1.x)) / tmp;
+
+        //found = true;
+
+        return new Vector2(
+            B1.x + (B2.x - B1.x) * mu,
+            B1.y + (B2.y - B1.y) * mu
+        );
     }
 }

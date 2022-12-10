@@ -27,7 +27,7 @@ public class WorldStateManager : MonoBehaviour
     //private List<HexInfo> hexs = new List<HexInfo>();
 
     [Header("Zagadki")]
-    [SerializeField] private List<LevelInfo> levelInfos = new List<LevelInfo>();
+    [SerializeField] private List<LevelInfo> levelInfos;
 
 
 

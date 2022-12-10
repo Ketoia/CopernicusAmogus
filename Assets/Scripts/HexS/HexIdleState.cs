@@ -10,7 +10,7 @@ public class HexIdleState : HexBaseState
     public override void EnterState(HexStateManager item)
     {
         this.item = item;
-        item.SetPos(item.LastId);
+        item.SetPos(item.CurrentId);
         collider = item.transform.GetComponent<Collider>();
         
     }

@@ -16,7 +16,7 @@ public class HexEntryMovingState : HexBaseState
         rotate = false; move = false;
         this.item = item;
 
-        if (!item.AllFlexibleIndex.Contains(item.LastId))
+        if (!item.AllFlexibleIndex.Contains(item.CurrentId))
         {
             //Debug.Log("Yess");
             //neighboursUp = GetNeighboursUpIndexs(item.LastId);
@@ -33,6 +33,10 @@ public class HexEntryMovingState : HexBaseState
     }
     public override void UpdateState(HexStateManager item)
     {
+        if (Input.GetMouseButtonUp(0))
+        {
+            item.SwitchState(item.idleState);
+        }
         ChangeMode(0.2f, 5);
 
     }
@@ -112,7 +116,7 @@ public class HexEntryMovingState : HexBaseState
 
     private void SwitchState()
     {
-        if (item.AllFlexibleIndex.Contains(item.LastId))
+        if (item.AllFlexibleIndex.Contains(item.CurrentId))
         {
 
         }
