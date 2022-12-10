@@ -2,35 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AtomIdleState : AtomBaseState
+public class AtomRotationState : AtomBaseState
 {
     private AtomStateManager item;
     public override void EnterState(AtomStateManager item)
     {
         this.item = item;
-        item.SetPos(item.CurrentId);
-        EventManager.AtomRotationEvent += SwitchToRotate;
+        Debug.Log("Rotation enter");
+        EventManager.AtomRotationEndEvent += SwitchState;
     }
 
-    private void SwitchToRotate(int layerIndex, int hexIndexY)
+    private void SwitchState(int hexIndexY)
     {
-        if (layerIndex == item.CurrentId.x)
-        {
-            //Debug.Log("rotate");
-            item.PreviousCelestianBodyHexId = new Vector2Int(layerIndex, hexIndexY);
-            item.SwitchState(item.rotationState);
-        }
-    }
+        Debug.Log("Rotation enter2");
 
-    private void SwitchToMove(int layerIndex)
-    {
-        item.SwitchState(item.movingState);
+        item.UpdateCurrentRotId(hexIndexY);
+        item.SwitchState(item.idleState);
     }
 
     public override void UpdateState(AtomStateManager item)
     {
-        
-  
+
 
     }
     public override void FixedUpdateState(AtomStateManager item)
@@ -48,6 +40,6 @@ public class AtomIdleState : AtomBaseState
     }
     public override void ExitState(AtomStateManager item)
     {
-        EventManager.AtomRotationEvent -= SwitchToRotate;
+        EventManager.AtomRotationEndEvent -= SwitchState;
     }
 }
