@@ -13,6 +13,10 @@ public class WorldStateManager : MonoBehaviour
 
     [SerializeField] private List<AtomStateManager> atoms;
 
+
+    [Header("Zagadki")]
+    [SerializeField] private List<LevelInfo> levelInfos;
+
     public WorldIdleState idleState = new WorldIdleState();
     public WorldMovingState movingState = new WorldMovingState();
 
@@ -23,19 +27,21 @@ public class WorldStateManager : MonoBehaviour
     private IDictionary<Vector2, HexInfo> hexs = new Dictionary<Vector2, HexInfo>();
     private Vector3 mousePositionInScreen;
     private Vector3 mousePosition;
+
+    private List<Vector2Int> allFlexibleIndex;
     //private float angle;
     //private List<Vector3> worldsPoints = new List<Vector3>();
     //private List<HexInfo> hexs = new List<HexInfo>();
 
-    [Header("Zagadki")]
-    [SerializeField] private List<LevelInfo> levelInfos;
 
 
-
+    public List<AtomStateManager> Atoms => atoms;
     public IDictionary<Vector2, HexInfo> Hexs => hexs;
     //private float[,,] hexs = new float[9,1,3];
     public Vector3 MousePositionInScreen => mousePositionInScreen;
     public Vector3 MousePosition => mousePosition;
+
+    public List<Vector2Int> AllFlexibleIndex => allFlexibleIndex;
     public int MaxLayer => maxLayer;
     public int MaxPizzaSlices => maxPizzaSlices;
     void Awake()
@@ -55,7 +61,7 @@ public class WorldStateManager : MonoBehaviour
             }
 
         }
-
+        allFlexibleIndex = AllIndexesToMoveForward(MaxLayer, MaxPizzaSlices);
         currentState = idleState;
 
         currentState.EnterState(this);
@@ -135,6 +141,20 @@ public class WorldStateManager : MonoBehaviour
         float x = Mathf.Cos(angleNow) * radius;
         float y = Mathf.Sin(angleNow) * radius;
         return new Vector3(x + transform.position.x, transform.position.y- 1, y + transform.position.z);
+    }
+
+    private List<Vector2Int> AllIndexesToMoveForward(int layersAmount, int pizzaSlices)
+    {
+        List<Vector2Int> newList = new List<Vector2Int>();
+        for (int x = 0; x < layersAmount; x++)
+        {
+            for (int y = 0; y < pizzaSlices; y++)
+            {
+                newList.Add(new Vector2Int(x + 1, y * (x + 1)));
+            }
+        }
+
+        return newList;
     }
 
 }

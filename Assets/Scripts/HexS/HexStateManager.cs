@@ -20,19 +20,19 @@ public class HexStateManager : MonoBehaviour
     //private Vector2 iD;
     private Vector3 lastMousePos;
     private Vector2Int currentId;
-    private List<Vector2Int> allFlexibleIndex;
+    
     private List<Vector2Int> orbitIndexes;
 
     public Vector2Int CurrentId { get { return currentId; } set { currentId = value; } }
     public Vector3 LastMousePos { get { return lastMousePos; } set { lastMousePos = value; } }
-    public List<Vector2Int> AllFlexibleIndex => allFlexibleIndex;
+    
     public List<Vector2Int> OrbitIndexes => orbitIndexes;
     public WorldStateManager World => world;
     
 
     void Start()
     {
-        allFlexibleIndex = AllIndexesToMoveForward(world.MaxLayer, world.MaxPizzaSlices);
+        
         currentId = startPosition;
         currentState = idleState;
 
@@ -103,19 +103,7 @@ public class HexStateManager : MonoBehaviour
         return new Vector3(vector.x, 0, vector.y);
     }
 
-    private List<Vector2Int> AllIndexesToMoveForward(int layersAmount, int pizzaSlices)
-    {
-        List<Vector2Int> newList = new List<Vector2Int>();
-        for (int x = 0; x < layersAmount; x++)
-        {
-            for (int y = 0; y < pizzaSlices; y++)
-            {
-                newList.Add(new Vector2Int(x + 1, y * (x + 1)));
-            }
-        }
 
-        return newList;
-    }
 
     public Vector2 GetIntersectionPointCoordinates(Vector2 A1, Vector2 A2, Vector2 B1, Vector2 B2/*, out bool found*/)
     {

@@ -15,7 +15,7 @@ public class HexRotatingState : HexBaseState
        // lastPosIndex = item.CurrentId;
         indexesToRotate = item.GetIndexesToRotate(item.CurrentId);
         EventManager.StartAtomRotationEvent(item.CurrentId.x, item.CurrentId.y);
-        Debug.Log("Start " + item.CurrentId);
+        //Debug.Log("Start " + item.CurrentId);
     }
 
 
@@ -32,7 +32,7 @@ public class HexRotatingState : HexBaseState
         if (Input.GetMouseButtonUp(0))
         {
             EventManager.StartAtomRotationEndEvent(item.CurrentId.y);
-            Debug.Log("Koniec " + item.CurrentId);
+            //Debug.Log("Koniec " + item.CurrentId);
             item.SwitchState(item.idleState);
         }
     }

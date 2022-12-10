@@ -5,19 +5,17 @@ using UnityEngine;
 public class HexMovingState : HexBaseState
 {
     private HexStateManager item;
-    private Vector2 fristPosIndex;
+    private Vector2Int firstPosIndex;
     private Vector3 lastPosition;
 
     private List<Vector2Int> indexesToMoveForward;
     public override void EnterState(HexStateManager item)
     {
         this.item = item;
-        fristPosIndex = item.CurrentId;
+        firstPosIndex = item.CurrentId;
         indexesToMoveForward = GetIndexesToMoveForward(item.CurrentId, item.World.MaxLayer);
-        //for (int i = 0; i < indexesToMoveForward.Count; i++)
-        //{
-        //    Debug.Log(indexesToMoveForward[i]);
-        //}
+
+        EventManager.StartAtomMoveEvent(item.CurrentId);
     }
     public override void UpdateState(HexStateManager item)
     {
@@ -31,9 +29,9 @@ public class HexMovingState : HexBaseState
         float LastLayerDist = item.V3ToV2(item.World.Hexs[indexesToMoveForward[indexesToMoveForward.Count - 1]].HexPos).magnitude;
 
         Vector2 test = indexVec.normalized * Mathf.Clamp(Vector2.Dot(firstVec3, indexVec.normalized), firstLayerDist, LastLayerDist);
-        Debug.Log("Vector3 mouse pos: " + firstVec3);
-        Debug.Log("Vector3 ball pos: " + indexVec);
-        Debug.Log("Dot product: " + Vector2.Dot(firstVec3, indexVec));
+       // Debug.Log("Vector3 mouse pos: " + firstVec3);
+       // Debug.Log("Vector3 ball pos: " + indexVec);
+      //  Debug.Log("Dot product: " + Vector2.Dot(firstVec3, indexVec));
 
         Vector2 pos = test; 
 
@@ -41,6 +39,7 @@ public class HexMovingState : HexBaseState
 
         if (Input.GetMouseButtonUp(0))
         {
+            EventManager.StartAtomMoveEndEvent(item.CurrentId);
             item.SwitchState(item.idleState);
         }
     }

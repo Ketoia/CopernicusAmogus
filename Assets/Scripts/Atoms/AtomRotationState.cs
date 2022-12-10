@@ -8,13 +8,13 @@ public class AtomRotationState : AtomBaseState
     public override void EnterState(AtomStateManager item)
     {
         this.item = item;
-        Debug.Log("Rotation enter");
+        //Debug.Log("Rotation enter");
         EventManager.AtomRotationEndEvent += SwitchState;
     }
 
     private void SwitchState(int hexIndexY)
     {
-        Debug.Log("Rotation enter2");
+        //Debug.Log("Rotation enter2");
 
         item.UpdateCurrentRotId(hexIndexY);
         item.SwitchState(item.idleState);
