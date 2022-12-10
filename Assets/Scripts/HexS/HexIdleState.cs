@@ -12,6 +12,7 @@ public class HexIdleState : HexBaseState
         this.item = item;
         item.SetPos(item.CurrentId);
         collider = item.transform.GetComponent<Collider>();
+        item.SetupOrbit(item.CurrentId);
         
     }
     public override void UpdateState(HexStateManager item)

@@ -17,15 +17,16 @@ public class AtomMovingState : AtomBaseState
     {
 
     }
-    public override void ExitState(AtomStateManager item)
-    {
 
-    }
     public override void OnCollisionEnter(AtomStateManager item, Collider other)
     {
 
     }
     public override void OnCollisionExit(AtomStateManager item, Collider other)
+    {
+
+    }
+    public override void ExitState(AtomStateManager item)
     {
 
     }

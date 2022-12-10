@@ -8,7 +8,7 @@ public class HexMovingState : HexBaseState
     private Vector2 fristPosIndex;
     private Vector3 lastPosition;
 
-    private List<Vector2> indexesToMoveForward;
+    private List<Vector2Int> indexesToMoveForward;
     public override void EnterState(HexStateManager item)
     {
         this.item = item;
@@ -21,41 +21,22 @@ public class HexMovingState : HexBaseState
     }
     public override void UpdateState(HexStateManager item)
     {
-        //item.transform.position = item.World.MousePosition;
-        //
-        //Vector2 mouseVec = item.V3ToV2(item.World.MousePosition) - item.V3ToV2(item.World.transform.position).normalized;
         item.CurrentId = item.GetNearestPoint(indexesToMoveForward);
 
         Vector2 indexVec = item.V3ToV2(item.World.Hexs[item.CurrentId].HexPos) - item.V3ToV2(item.World.transform.position).normalized;
 
-        Vector2 firstVec = item.V3ToV2(item.World.transform.position);
-        Vector2 firstVec2 = item.V3ToV2(item.World.Hexs[item.CurrentId].HexPos);
-
         Vector2 firstVec3 = item.V3ToV2(item.World.MousePosition);
-        Vector2 perVector = Vector2.Perpendicular(indexVec) + item.V3ToV2(item.World.MousePosition);
 
-        Vector2 firstLayerPos = item.V3ToV2(item.World.Hexs[indexesToMoveForward[0]].HexPos);
-        Vector2 LastLayerPos = item.V3ToV2(item.World.Hexs[indexesToMoveForward[indexesToMoveForward.Count - 1]].HexPos);
-        //Vector2 pos = item.GetIntersectionPointCoordinates(firstVec, firstVec2, firstVec3, perVector);
+        float firstLayerDist = item.V3ToV2(item.World.Hexs[indexesToMoveForward[0]].HexPos).magnitude;
+        float LastLayerDist = item.V3ToV2(item.World.Hexs[indexesToMoveForward[indexesToMoveForward.Count - 1]].HexPos).magnitude;
 
-        Vector2 test = indexVec.normalized * Mathf.Clamp(Vector2.Dot(firstVec3, indexVec.normalized), 1, 4);
+        Vector2 test = indexVec.normalized * Mathf.Clamp(Vector2.Dot(firstVec3, indexVec.normalized), firstLayerDist, LastLayerDist);
         Debug.Log("Vector3 mouse pos: " + firstVec3);
         Debug.Log("Vector3 ball pos: " + indexVec);
         Debug.Log("Dot product: " + Vector2.Dot(firstVec3, indexVec));
 
-        Vector2 pos = test; // perVector.normalized * Mathf.Clamp(Vector2.Dot(firstVec3, )
-        //float signX = Mathf.Sign(pos.x - firstLayerPos.x);
-        //float signY = Mathf.Sign(pos.y - firstLayerPos.y);
-        //if (IsVectorNegative(pos, firstLayerPos))
-        //{
-        //    pos = item.V3ToV2(item.World.Hexs[indexesToMoveForward[0]].HexPos);
-        //}
-        //else  if (IsVectorNegative(LastLayerPos, pos))
-        //{
-        //    pos = item.V3ToV2(item.World.Hexs[indexesToMoveForward[indexesToMoveForward.Count - 1]].HexPos);
-        //}
-        // float a = CalcMultiplayer(pos, Vector2.Dot(mouseVec, indexVec));
-        // Debug.DrawRay(item.World.transform.position, new Vector3(a * pos.x, 0, a * pos.y), Color.green);
+        Vector2 pos = test; 
+
         item.transform.position = new Vector3(pos.x, 0, pos.y);
 
         if (Input.GetMouseButtonUp(0))
@@ -64,24 +45,13 @@ public class HexMovingState : HexBaseState
         }
     }
 
-    private bool IsVectorNegative(Vector2 vec1, Vector2 vec2)
+    private List<Vector2Int> GetIndexesToMoveForward(Vector2Int index, int layersAmount)
     {
-        float signX = Mathf.Sign(vec1.x - vec2.x);
-        float signY = Mathf.Sign(vec1.y - vec2.y);
-
-        if (signX < 0 && signY < 0)
-            return true;
-        else
-            return false;
-    }
-
-    private List<Vector2> GetIndexesToMoveForward(Vector2 index, int layersAmount)
-    {
-        List<Vector2> newList = new List<Vector2>();
+        List<Vector2Int> newList = new List<Vector2Int>();
         float slice = index.y / index.x;
         for (int x = 0; x < layersAmount; x++)
         {
-            newList.Add(new Vector2(x + 1, slice * x + slice));
+            newList.Add(new Vector2Int(x + 1, (int)(slice * x + slice)));
         }
 
         return newList;

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class HexStateManager : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> atoms = new List<GameObject>();
+    //[SerializeField] private List<GameObject> atoms = new List<GameObject>();
     [SerializeField] private WorldStateManager world = new WorldStateManager();
-    [SerializeField] private Vector2 startPosition = new Vector2();
+    [SerializeField] private Vector2Int startPosition = new Vector2Int();
 
     public HexIdleState idleState = new HexIdleState();
     public HexEntryMovingState entryMovingState = new HexEntryMovingState();
@@ -19,12 +19,14 @@ public class HexStateManager : MonoBehaviour
     //private List<HexInfo> hexs;
     //private Vector2 iD;
     private Vector3 lastMousePos;
-    private Vector2 currentId;
-    private List<Vector2> allFlexibleIndex;
+    private Vector2Int currentId;
+    private List<Vector2Int> allFlexibleIndex;
+    private List<Vector2Int> orbitIndexes;
 
-    public Vector2 CurrentId { get { return currentId; } set { currentId = value; } }
+    public Vector2Int CurrentId { get { return currentId; } set { currentId = value; } }
     public Vector3 LastMousePos { get { return lastMousePos; } set { lastMousePos = value; } }
-    public List<Vector2> AllFlexibleIndex => allFlexibleIndex;
+    public List<Vector2Int> AllFlexibleIndex => allFlexibleIndex;
+    public List<Vector2Int> OrbitIndexes => orbitIndexes;
     public WorldStateManager World => world;
     
 
@@ -37,7 +39,7 @@ public class HexStateManager : MonoBehaviour
         currentState.EnterState(this);
     }
 
-    public void SetPos(Vector3 position)
+    public void SetPos(Vector2 position)
     {
         Vector3 newPos = new Vector3(world.Hexs[position].HexPos.x, 0, world.Hexs[position].HexPos.z);
         transform.position = newPos;
@@ -74,9 +76,9 @@ public class HexStateManager : MonoBehaviour
         currentState.OnCollisionExit(this, other);
     }
 
-    public Vector2 GetNearestPoint(List<Vector2> gridIndexes)
+    public Vector2Int GetNearestPoint(List<Vector2Int> gridIndexes)
     {
-        Vector2 index = currentId;
+        Vector2Int index = currentId;
         float diff = (world.MousePosition - world.Hexs[index].HexPos).magnitude;
         for (int i = 0; i < gridIndexes.Count; i++)
         {
@@ -101,14 +103,14 @@ public class HexStateManager : MonoBehaviour
         return new Vector3(vector.x, 0, vector.y);
     }
 
-    private List<Vector2> AllIndexesToMoveForward(int layersAmount, int pizzaSlices)
+    private List<Vector2Int> AllIndexesToMoveForward(int layersAmount, int pizzaSlices)
     {
-        List<Vector2> newList = new List<Vector2>();
+        List<Vector2Int> newList = new List<Vector2Int>();
         for (int x = 0; x < layersAmount; x++)
         {
             for (int y = 0; y < pizzaSlices; y++)
             {
-                newList.Add(new Vector2(x + 1, y * (x + 1)));
+                newList.Add(new Vector2Int(x + 1, y * (x + 1)));
             }
         }
 
@@ -134,5 +136,21 @@ public class HexStateManager : MonoBehaviour
             B1.x + (B2.x - B1.x) * mu,
             B1.y + (B2.y - B1.y) * mu
         );
+    }
+    public void SetupOrbit(Vector2Int index)
+    {
+        orbitIndexes = GetIndexesToRotate(index);
+    }
+
+    public List<Vector2Int> GetIndexesToRotate(Vector2Int index)
+    {
+        List<Vector2Int> newList = new List<Vector2Int>();
+        //float slice = index.y / index.x;
+        for (int x = 0; x < index.x * world.MaxPizzaSlices; x++)
+        {
+            newList.Add(new Vector2Int(index.x, x));
+        }
+
+        return newList;
     }
 }

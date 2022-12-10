@@ -8,13 +8,17 @@ public class HexRotatingState : HexBaseState
     //private Vector2 lastPosIndex;
     private Vector3 lastPosition;
 
-    private List<Vector2> indexesToRotate;
+    private List<Vector2Int> indexesToRotate;
     public override void EnterState(HexStateManager item)
     {
         this.item = item;
        // lastPosIndex = item.CurrentId;
-        indexesToRotate = GetIndexesToRotate(item.CurrentId);
+        indexesToRotate = item.GetIndexesToRotate(item.CurrentId);
+        EventManager.StartAtomRotationEvent(item.CurrentId.x, item.CurrentId.y);
+        Debug.Log("Start " + item.CurrentId);
     }
+
+
     public override void UpdateState(HexStateManager item)
     {
         item.CurrentId = item.GetNearestPoint(indexesToRotate);
@@ -27,6 +31,8 @@ public class HexRotatingState : HexBaseState
         
         if (Input.GetMouseButtonUp(0))
         {
+            EventManager.StartAtomRotationEndEvent(item.CurrentId.y);
+            Debug.Log("Koniec " + item.CurrentId);
             item.SwitchState(item.idleState);
         }
     }
@@ -53,9 +59,9 @@ public class HexRotatingState : HexBaseState
     //    return new Vector2(vector.x, vector.z);
     //}
 
-    public Vector2 GetNextNearestPoint(Vector2 index)
+    public Vector2 GetNextNearestPoint(Vector2Int index)
     {
-        List<Vector2> indexes = GetNeighboursRightIndexs(index);
+        List<Vector2Int> indexes = GetNeighboursRightIndexs(index);
 
         if ((item.World.Hexs[indexes[0]].HexPos - item.World.MousePosition).magnitude <= (item.World.Hexs[indexes[1]].HexPos - item.World.MousePosition).magnitude)
         {
@@ -67,34 +73,34 @@ public class HexRotatingState : HexBaseState
         }
     }
 
-    private List<Vector2> GetNeighboursRightIndexs(Vector2 index)
+    private List<Vector2Int> GetNeighboursRightIndexs(Vector2Int index)
     {
-        List<Vector2> newList = new List<Vector2>();
+        List<Vector2Int> newList = new List<Vector2Int>();
 
         if (index.y > 0)
-            newList.Add(new Vector2(index.x, index.y - 1));
+            newList.Add(new Vector2Int(index.x, index.y - 1));
         else
-            newList.Add(new Vector2(index.x, (item.World.MaxPizzaSlices - 1) * index.x + index.x - 1));
+            newList.Add(new Vector2Int(index.x, (item.World.MaxPizzaSlices - 1) * index.x + index.x - 1));
 
         if (index.y < (item.World.MaxPizzaSlices - 1) * index.x + index.x - 1)
-            newList.Add(new Vector2(index.x, index.y + 1));
+            newList.Add(new Vector2Int(index.x, index.y + 1));
         else
-            newList.Add(new Vector2(index.x, 0));
+            newList.Add(new Vector2Int(index.x, 0));
 
         return newList;
     }
 
-    private List<Vector2> GetIndexesToRotate(Vector2 index)
-    {
-        List<Vector2> newList = new List<Vector2>();
-        float slice = index.y / index.x;
-        for (int x = 0; x < index.x * item.World.MaxPizzaSlices; x++)
-        {
-            newList.Add(new Vector2(index.x, x));
-        }
+    //private List<Vector2> GetIndexesToRotate(Vector2 index)
+    //{
+    //    List<Vector2> newList = new List<Vector2>();
+    //    //float slice = index.y / index.x;
+    //    for (int x = 0; x < index.x * item.World.MaxPizzaSlices; x++)
+    //    {
+    //        newList.Add(new Vector2(index.x, x));
+    //    }
 
-        return newList;
-    }
+    //    return newList;
+    //}
   
 
     //public Vector2 GetIntersectionPointCoordinates(Vector2 A1, Vector2 A2, Vector2 B1, Vector2 B2/*, out bool found*/)

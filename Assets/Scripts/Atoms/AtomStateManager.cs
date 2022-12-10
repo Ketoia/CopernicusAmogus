@@ -6,27 +6,43 @@ public class AtomStateManager : MonoBehaviour
 {
     //[SerializeField] private List<GameObject> atoms = new List<GameObject>();
     [SerializeField] private WorldStateManager world = new WorldStateManager();
+    [SerializeField] private Vector2Int startPosition = new Vector2Int();
     //[SerializeField] private Vector2 startPosition = new Vector2();
 
     public AtomIdleState idleState = new AtomIdleState();
     public AtomMovingState movingState = new AtomMovingState();
+    public AtomRotationState rotationState = new AtomRotationState();
 
 
     private AtomBaseState currentState;
 
     //private List<HexInfo> hexs;
-    private Vector2 iD;
+    //private int layerId;
+    private Vector2Int currentId;
+    private Vector2Int previousCelestianBodyHexId;
+    private List<Vector2> allFlexibleIndex;
+
+    public Vector2Int CurrentId { get { return currentId; } set { currentId = value; } }
+    public Vector2Int PreviousCelestianBodyHexId { get { return previousCelestianBodyHexId; } set { previousCelestianBodyHexId = value; } }
+
+    public List<Vector2> AllFlexibleIndex => allFlexibleIndex;
 
     public WorldStateManager World => world;
 
     void Start()
     {
         //SetPos(startPosition);
+        currentId = startPosition;
         currentState = idleState;
 
         currentState.EnterState(this);
     }
 
+    public void SetPos(Vector2 position)
+    {
+        Vector3 newPos = new Vector3(world.Hexs[position].HexPos.x, 0, world.Hexs[position].HexPos.z);
+        transform.position = newPos;
+    }
     //private void SetPos(Vector3 position)
     //{
     //    Vector3 newPos = new Vector3(world.Hexs[startPosition].HexPos.x, world.Hexs[startPosition].HexPos.y, -1);
@@ -35,7 +51,7 @@ public class AtomStateManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(world.Hexs.Count);
+       // Debug.Log(world.Hexs.Count);
         currentState.UpdateState(this);
 
 
@@ -62,5 +78,17 @@ public class AtomStateManager : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         currentState.OnCollisionExit(this, other);
+    }
+
+    public void UpdateCurrentRotId(int hexIndexY)
+    {
+        int diff = hexIndexY - previousCelestianBodyHexId.y;
+        int mod = world.MaxPizzaSlices * currentId.x;
+        currentId.y = (((currentId.y + diff) % mod) + mod) % mod;
+    }
+
+    public void UpdateCurrentMoveId(Vector2 hexIndex)
+    {
+        int pizzaSlice = currentId.y / currentId.x;
     }
 }

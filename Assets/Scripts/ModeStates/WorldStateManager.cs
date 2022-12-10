@@ -11,11 +11,12 @@ public class WorldStateManager : MonoBehaviour
     [SerializeField] private GameObject prefab;
     [SerializeField] private GameObject testPrefab;
 
+    [SerializeField] private List<AtomStateManager> atoms;
+
     public WorldIdleState idleState = new WorldIdleState();
     public WorldMovingState movingState = new WorldMovingState();
 
     private WorldBaseState currentState;
-
 
 
 
