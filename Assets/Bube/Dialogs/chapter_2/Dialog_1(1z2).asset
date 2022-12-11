@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
+  m_Name: Dialog_1(1z2)
+  m_EditorClassIdentifier: 
+  Dialogs:
+  - simpleDialog: Buongiorno Copernicus.
+    actorIndex: 4
+  - simpleDialog: Oh professor Domenico didnt expect you here.
+    actorIndex: 0
+  - simpleDialog: Your lecture piqued my interest albeit it was quite contentious.
+      Challenging the status quo and all that.
+    actorIndex: 4
+  - simpleDialog: I think there are gaps in our understanding of the universe. And
+      leaving them as it is is a detrument to the growth of scientific knowledge.
+    actorIndex: 0
+  - simpleDialog: Mm, there trully may be a whole world beyond our current understanding.
+      I trully admire yound adventures minds like yours Copernicus, but dont get
+      yourself in much trouble yes?
+    actorIndex: 4
+  - simpleDialog: I`ll try. Arrivederci professor.
+    actorIndex: 0
+  - simpleDialog: Arrivederci ... Copernicus have you perhaps practised in alchemy?
+    actorIndex: 4
+  - simpleDialog: I only read some books about it. Why would bring it up now?
+    actorIndex: 0
+  - simpleDialog: I have a friend Enzio Gnatucco. He is quite an avid practitioner,
+      he wanted to speak to you personally but didnt have a chance.
+    actorIndex: 4
+  - simpleDialog: I`ll meet with him then.
+    actorIndex: 0

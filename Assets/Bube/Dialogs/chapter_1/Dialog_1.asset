@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
+  m_Name: Dialog_1
+  m_EditorClassIdentifier: 
+  Dialogs:
+  - simpleDialog: Oy Nicolaus! Where have you been? I've been looking for you.
+    actorIndex: 1
+  - simpleDialog: What is it Sznobic? I was studying in the library.
+    actorIndex: 0
+  - simpleDialog: Did you hear about the court Alchemist that's visiting?
+    actorIndex: 1
+  - simpleDialog: No. What about him?
+    actorIndex: 0
+  - simpleDialog: He brought with him his alchemical device, its a scientific marvel.
+    actorIndex: 1
+  - simpleDialog: This alchemical device, what does it even do? Never heard of it.
+    actorIndex: 0
+  - simpleDialog: All sorts of things, it has near limitless possibilities. Thats
+      at least what i heard of it. I propose we sneak to his chambers after school,
+      and tinker with it. Are you willing?
+    actorIndex: 1
+  - simpleDialog: Uhm sure. Do you know how to use it?
+    actorIndex: 0
+  - simpleDialog: Yes actually, ive played with it yesterday and somewhat figured
+      it out.
+    actorIndex: 1

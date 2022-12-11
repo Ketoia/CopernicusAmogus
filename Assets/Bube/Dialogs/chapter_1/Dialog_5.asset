@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
+  m_Name: Dialog_5
+  m_EditorClassIdentifier: 
+  Dialogs:
+  - simpleDialog: Last time was a disaster, we made such a mess. All this tarry substance,
+      what now?
+    actorIndex: 0
+  - simpleDialog: This time itll be our last Nicolaus, the Alchemist will be leaving
+      in two days. Lets make it count, i have an idea.
+    actorIndex: 1
+  - simpleDialog: Too bad, i still have so many ideas to test out. Do you think i
+      could get a device of my own?
+    actorIndex: 0
+  - simpleDialog: I dont know if you could find someone who would make it for you,
+      even if you could I think it would quite expensive.
+    actorIndex: 1
+  - simpleDialog: So what was this idea you mentioned?
+    actorIndex: 0
+  - simpleDialog: We`ll make a metal that changes state on contact with water. Itll
+      be liquid in the begining but after being immersed in cold water itll become
+      hard and brittle.
+    actorIndex: 1
+  - simpleDialog: Interesting. What will you use it for?
+    actorIndex: 0
+  - simpleDialog: I`ll use it to fake head Bishops seal. No one will notice that
+      the documents werent aproved by him.
+    actorIndex: 1
+  - simpleDialog: That will get out of control quick. Im in.
+    actorIndex: 0
+  - simpleDialog: Expected nothing less from you. On we go.
+    actorIndex: 1
