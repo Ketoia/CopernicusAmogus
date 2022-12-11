@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
+  m_Name: Dialog_6(epilogue)
+  m_EditorClassIdentifier: 
+  dialogProperties:
+  - simpleDialog: So the alchemists gone. It was fun while it lasted.
+    actorIndex: 0
+  - simpleDialog: I think it was quite the oposite after we made the fake seal.
+    actorIndex: 1
+  - simpleDialog: It was all your idea.
+    actorIndex: 0
+  - simpleDialog: You are still an accomplice Nicolaus. At least they didnt found
+      out who did it.
+    actorIndex: 1
+  - simpleDialog: You used up all your luck on that. Was it even worth it?
+    actorIndex: 0
+  - simpleDialog: You wouldnt even comprehend how much.
+    actorIndex: 1
+  - simpleDialog: Nicolaus.
+    actorIndex: 2
+  - simpleDialog: Uncle, its not something about what ive done, is it?
+    actorIndex: 0
+  - simpleDialog: I dont know what you mean Nicolaus.
+    actorIndex: 2
+  - simpleDialog: Good. So what is it uncle?
+    actorIndex: 0
+  - simpleDialog: You`ll be attending university of Bologne from the next semester.
+    actorIndex: 2
+  - simpleDialog: Italy hmm.
+    actorIndex: 0
+  - simpleDialog: Have you been studying latin well?
+    actorIndex: 2
+  - simpleDialog: Bologne is the sausage right?
+    actorIndex: 0

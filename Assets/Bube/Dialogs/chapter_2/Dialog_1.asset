@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
+  m_Name: Dialog_1
+  m_EditorClassIdentifier: 
+  Dialogs:
+  - simpleDialog: Buongiorno Copernicus.
+    actorIndex: 3
+  - simpleDialog: Oh professor Domenico didnt expect you here.
+    actorIndex: 0
+  - simpleDialog: Your lecture piqued my interest albeit it was quite contentious.
+      Challenging the status quo and all that.
+    actorIndex: 3
+  - simpleDialog: I think there are gaps in our understanding of the universe. And
+      leaving them as it is is a detrument to the growth of scientific knowledge.
+    actorIndex: 0
+  - simpleDialog: Mm, there trully may be a whole world beyond our current understanding.
+      I trully admire yound adventures minds like yours Copernicus, but dont get
+      yourself in much trouble yes?
+    actorIndex: 3
+  - simpleDialog: I`ll try. Arrivederci professor.
+    actorIndex: 0
+  - simpleDialog: Arrivederci ... Copernicus have you perhaps practised in alchemy?
+    actorIndex: 3
+  - simpleDialog: I only read some books about it. Why would bring it up now?
+    actorIndex: 0
+  - simpleDialog: I have a friend Enzio Gnatucco. He is quite an avid practitioner,
+      he wanted to speak to you personally but didnt have a chance.
+    actorIndex: 4
+  - simpleDialog: I`ll meet with him then.
+    actorIndex: 0
+  - simpleDialog: Hello is anybody here? Ive come to visit Enzio Gnatucco.
+    actorIndex: 0
+  - simpleDialog: Copernicus wohohoho! Buongiorno, Domenico told me lots about you.
+    actorIndex: 4
+  - simpleDialog: Gnatucco you wanted to talk to me about astronomy, why is an alchemist
+      such as you intrested in these maters?
+    actorIndex: 0
+  - simpleDialog: Please call me Enzio, you see I am a practioner of many arts, and
+      alchemy as a whole is just a way of understanding the universe, just like astronomy.
+    actorIndex: 4
+  - simpleDialog: I tought i was about attaining riches, magnum opus and all that.
+    actorIndex: 0
+  - simpleDialog: Magnum opus is an end goal for many in this field, but i have enough
+      riches as it is, and i grew too old for chasing gold. My magnum opus now is
+      finding a way of preserving my knowledge for the next generation.
+    actorIndex: 4
+  - simpleDialog: Then I presume you are looking for an aprentice.
+    actorIndex: 0
+  - simpleDialog: Wohohoho indeed I am, and i think you are willing to learn about
+      my craft. Have you had any previous experience with it?
+    actorIndex: 4
+  - simpleDialog: vBack in school i tinkered with an alchemical device.
+    actorIndex: 0
+  - simpleDialog: Oh i think i have one somewhere, ill be back in a minute.
+    actorIndex: 4

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
+  m_Name: Dialog_2
+  m_EditorClassIdentifier: 
+  dialogProperties:
+  - simpleDialog: This alchemical device sure is usefull, one could make anything
+      without the need of a university laboratory.
+    actorIndex: 0
+  - simpleDialog: It sure is Nicolaus.
+    actorIndex: 1
+  - simpleDialog: Sznobic, these alchemists what do they use it for?
+    actorIndex: 0
+  - simpleDialog: Uhm. I think it has something to do with this opus magnum ive read
+      about. They are looking for a way to turn metals like tin or iron into gold.
+    actorIndex: 1
+  - simpleDialog: If someone manages to make it, it would move the whole earth, gold
+      would be useless.
+    actorIndex: 0
+  - simpleDialog: Yes. Anyway, ive got this idea invisible ink. I am pretty sure
+      we can make it on the alchemical device, are you coming with me?Yes. Anyway,
+      ive got this idea invisible ink. I am pretty sure we can make it on the alchemical
+      device, are you coming with me?
+    actorIndex: 1
+  - simpleDialog: I`ll go, but what do you need invisible ink for?
+    actorIndex: 0
+  - simpleDialog: I have my reasons.
+    actorIndex: 1

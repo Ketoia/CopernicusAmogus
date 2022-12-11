@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
+  m_Name: Dialog_4
+  m_EditorClassIdentifier: 
+  dialogProperties:
+  - simpleDialog: So did you make some any significant observations with the lens
+      we made last time?
+    actorIndex: 1
+  - simpleDialog: Nothing worthwile, it didnt prove to me more usefull than the tools
+      i usually use.
+    actorIndex: 0
+  - simpleDialog: Listen to this Nicolaus, i read more about this opus magnum, alchemists
+      call it philosopher stone.
+    actorIndex: 1
+  - simpleDialog: Yea it turns anything to gold. You told me about it already.
+    actorIndex: 0
+  - simpleDialog: Let me finish. And it doesnt turn anything to gold, you jumbled
+      it with the story about King Midas.
+    actorIndex: 1
+  - simpleDialog: Arent they both just a myth, no one even knows how to make it.
+    actorIndex: 0
+  - simpleDialog: So as i was saying, there are supposedly four steps to making the
+      philosophers stone. First being Nigredo.
+    actorIndex: 1
+  - simpleDialog: Okay and how do we make this Nigredo? If someone knows it exist
+      ,theyll also know how to make it right?
+    actorIndex: 0
+  - simpleDialog: I dont from what source they got it, but there is no recipe.
+    actorIndex: 1
+  - simpleDialog: So you want to make it right? Then how do we do it?
+    actorIndex: 0
+  - simpleDialog: We`ll have to experiment, im sure we`ll figure something out.
+    actorIndex: 0
