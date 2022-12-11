@@ -26,3 +26,19 @@ MonoBehaviour:
     actorIndex: 0
   - simpleDialog: You wouldnt even comprehend how much.
     actorIndex: 1
+  - simpleDialog: Nicolaus.
+    actorIndex: 2
+  - simpleDialog: Uncle, its not something about what ive done, is it?
+    actorIndex: 0
+  - simpleDialog: I dont know what you mean Nicolaus.
+    actorIndex: 2
+  - simpleDialog: Good. So what is it uncle?
+    actorIndex: 0
+  - simpleDialog: You`ll be attending university of Bologne from the next semester.
+    actorIndex: 2
+  - simpleDialog: Italy hmm.
+    actorIndex: 0
+  - simpleDialog: Have you been studying latin well?
+    actorIndex: 2
+  - simpleDialog: Bologne is the sausage right?
+    actorIndex: 0
