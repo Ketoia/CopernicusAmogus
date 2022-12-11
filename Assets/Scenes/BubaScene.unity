@@ -216,7 +216,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &153328229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2152,6 +2152,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8011702852156695803, guid: 5917c36343110d6458f6d7b4e77901d0, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8892116054702347855, guid: 5917c36343110d6458f6d7b4e77901d0, type: 3}
+      propertyPath: level
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8892116054702347855, guid: 5917c36343110d6458f6d7b4e77901d0, type: 3}
@@ -3213,7 +3217,7 @@ PrefabInstance:
       objectReference: {fileID: 1739568113}
     - target: {fileID: 7413776532410552786, guid: 841095f50cd8387408393eb76f5ef1dd, type: 3}
       propertyPath: celestials.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7413776532410552786, guid: 841095f50cd8387408393eb76f5ef1dd, type: 3}
       propertyPath: prefabs.Array.data[0]

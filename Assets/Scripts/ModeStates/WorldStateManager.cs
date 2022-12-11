@@ -70,11 +70,44 @@ public class WorldStateManager : MonoBehaviour
 
         MissionManager.instance.FinishQuest();
         quest = MissionManager.instance.GenerateNewMission();
+
+        EventManager.CalculateMisionProgressEvent += () => CheckQuest();
     }
 
-    void checkQuest()
+    void CheckQuest()
     {
         //Sprawdzaj\
+        List<int> list = new List<int>(4);
+        int layer1 = 0;
+        int layer2 = 0;
+        int layer3 = 0;
+
+        for (int i = 0; i < atoms.Count; i++)
+        {
+            switch (i)
+            {
+                case 0:
+                    layer1++;
+                    break;
+                case 1:
+                    layer2++;
+                    break;
+                case 2:
+                    layer3++;
+                    break;
+                case 3:
+                    break;
+                default:
+                    break;
+            }
+            //list[atoms[i].CurrentId.x]++;
+        }
+        if (quest == list)
+        {
+            MissionManager.instance.FinishQuest();
+            quest = MissionManager.instance.GenerateNewMission();
+        }
+        Debug.Log(quest.Count + " " + list.Count);
         //If true to        MissionManager.instance.FinishQuest();
         //                  quest = MissionManager.instance.GenerateNewMission();
     }
@@ -97,6 +130,7 @@ public class WorldStateManager : MonoBehaviour
                     Vector2 hexPos = new Vector2(hexs[index].HexPos.x, hexs[index].HexPos.z);
                     Vector2 dir = woodenButtons.CheckDirection(hexPos, mousePos);
                     UpdateAtoms(woodenButtons.CheckOnDirection(hexPos, dir, Hexs));
+                    EventManager.StartCalculateMisionProgressEvent();
                 }
             }
         }

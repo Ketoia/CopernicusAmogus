@@ -79,7 +79,9 @@ public class HexMovingState : HexBaseState
             {
                 if (item.World.AllFlexibleIndex.Contains(item.World.Celestals[i].CurrentId))
                 {
+                    Vector2Int prev = item.World.Celestals[i].CurrentId;
                     item.World.Celestals[i].CurrentId = item.World.Celestals[i].UpdateCurrentMoveId(newIndex, prevIndex);
+                    EventManager.StartPlanetReturnEvent(prev, item.World.Celestals[i].CurrentId);
                     item.World.Celestals[i].SetPos(item.World.Celestals[i].CurrentId);
                     break;
                 }

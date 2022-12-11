@@ -136,6 +136,7 @@ public class AtomStateManager : MonoBehaviour
 
     }
 
+
     public void DestroyThis()
     {
         Destroy(gameObject);
