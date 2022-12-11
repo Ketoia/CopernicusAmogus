@@ -28,10 +28,10 @@ public class DialogSystem : MonoBehaviour
         StartDialog(dialogDebug);
     }
 
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)) StartDialog(dialogDebug);
-    }
+    //public void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Space)) StartDialog(dialogDebug);
+    //}
 
     public void StartDialog(Dialog dialog)
     {

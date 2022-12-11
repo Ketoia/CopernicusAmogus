@@ -234,7 +234,7 @@ MonoBehaviour:
   textName: {fileID: 1202311575}
   textDialog: {fileID: 472343908}
   textPressToContinue: {fileID: 1848847877}
-  textWait: 0.075
+  textWait: 0.025
   textWaitBetween: 0.5
   actors:
   - {fileID: 306778564}
@@ -3596,11 +3596,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3830589818702739259, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 170
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 3830589818702739259, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 150
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 3830589818702739259, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3632,11 +3632,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3830589818702739259, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -283.8
+      value: -310.7
       objectReference: {fileID: 0}
     - target: {fileID: 3830589818702739259, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 112.9
+      value: 135.4
       objectReference: {fileID: 0}
     - target: {fileID: 3830589818702739259, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3649,6 +3649,10 @@ PrefabInstance:
     - target: {fileID: 3830589818702739259, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3830589820461235915, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
