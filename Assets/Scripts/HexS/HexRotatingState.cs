@@ -23,6 +23,12 @@ public class HexRotatingState : HexBaseState
         indexesToRotate = item.GetIndexesToRotate(item.CurrentId);
         EventManager.StartAtomRotationEvent(item.CurrentId.x, item.CurrentId.y, item.rotatingState);
         //Debug.Log("Start " + item.CurrentId);
+
+        for (int i = indexesToRotate.Count; i >= 0; i--)
+        {
+            if (indexesToRotate[i] == null)
+                indexesToRotate.RemoveAt(i);
+        }
     }
 
 

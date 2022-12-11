@@ -21,10 +21,10 @@ public class WorldStateManager : MonoBehaviour
     public WorldMovingState movingState = new WorldMovingState();
 
     private WorldBaseState currentState;
+    private WoodenButtons woodenButtons = new WoodenButtons();
 
 
-
-    private IDictionary<Vector2, HexInfo> hexs = new Dictionary<Vector2, HexInfo>();
+    private Dictionary<Vector2, HexInfo> hexs = new Dictionary<Vector2, HexInfo>();
     private Vector3 mousePositionInScreen;
     private Vector3 mousePosition;
 
@@ -36,7 +36,7 @@ public class WorldStateManager : MonoBehaviour
 
 
     public List<AtomStateManager> Atoms => atoms;
-    public IDictionary<Vector2, HexInfo> Hexs => hexs;
+    public Dictionary<Vector2, HexInfo> Hexs => hexs;
     //private float[,,] hexs = new float[9,1,3];
     public Vector3 MousePositionInScreen => mousePositionInScreen;
     public Vector3 MousePosition => mousePosition;
@@ -44,6 +44,7 @@ public class WorldStateManager : MonoBehaviour
     public List<Vector2Int> AllFlexibleIndex => allFlexibleIndex;
     public int MaxLayer => maxLayer;
     public int MaxPizzaSlices => maxPizzaSlices;
+
     void Awake()
     {
         for (int i = 0; i < 4; i++)
@@ -72,7 +73,14 @@ public class WorldStateManager : MonoBehaviour
         SetMousePos();
         currentState.UpdateState(this);
 
-
+        if(Input.GetMouseButton(0))
+        {
+            Vector2 mousePos = new Vector2(mousePosition.x, mousePosition.z);
+            Vector2 index = woodenButtons.CheckIndex(mousePos);
+            Vector2 hexPos = new Vector2(hexs[index].HexPos.x, hexs[index].HexPos.z);
+            Vector2 dir = woodenButtons.CheckDirection(hexPos, mousePos);
+            woodenButtons.CheckOnDirection(hexPos, dir, Hexs);
+        }
     }
 
     private void FixedUpdate()
