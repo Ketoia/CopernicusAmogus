@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
   m_Name: Dialog_5
   m_EditorClassIdentifier: 
-  Dialogs:
+  dialogProperties:
   - simpleDialog: Last time was a disaster, we made such a mess. All this tarry substance,
       what now?
     actorIndex: 0

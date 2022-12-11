@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
   m_Name: Dialog_6(epilogue)
   m_EditorClassIdentifier: 
-  Dialogs:
+  dialogProperties:
   - simpleDialog: So the alchemists gone. It was fun while it lasted.
     actorIndex: 0
   - simpleDialog: I think it was quite the oposite after we made the fake seal.

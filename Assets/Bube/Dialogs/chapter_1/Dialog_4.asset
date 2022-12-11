@@ -12,13 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
   m_Name: Dialog_4
   m_EditorClassIdentifier: 
-  Dialogs:
+  dialogProperties:
   - simpleDialog: So did you make some any significant observations with the lens
       we made last time?
     actorIndex: 1
   - simpleDialog: Nothing worthwile, it didnt prove to me more usefull than the tools
-      i usually use.Nothing worthwile, it didnt prove to me more usefull than the
-      tools i usually use.
+      i usually use.
     actorIndex: 0
   - simpleDialog: Listen to this Nicolaus, i read more about this opus magnum, alchemists
       call it philosopher stone.
@@ -41,4 +40,4 @@ MonoBehaviour:
   - simpleDialog: So you want to make it right? Then how do we do it?
     actorIndex: 0
   - simpleDialog: We`ll have to experiment, im sure we`ll figure something out.
-    actorIndex: 1
+    actorIndex: 0

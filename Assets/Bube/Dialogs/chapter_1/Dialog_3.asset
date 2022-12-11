@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
   m_Name: Dialog_3
   m_EditorClassIdentifier: 
-  Dialogs:
+  dialogProperties:
   - simpleDialog: Why is the symbol for earth in the middle of the device anyway?
       Does it do anything?
     actorIndex: 0
@@ -30,5 +30,5 @@ MonoBehaviour:
   - simpleDialog: We could, but the alchemist would become wary of thieves if we
       used up all his silver for it.
     actorIndex: 1
-  - simpleDialog: Its a yes the See me after school in the courtyard.
+  - simpleDialog: Its a yes then. See me after school in the courtyard.
     actorIndex: 0

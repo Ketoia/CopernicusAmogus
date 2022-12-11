@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
   m_Name: Dialog_2
   m_EditorClassIdentifier: 
-  Dialogs:
+  dialogProperties:
   - simpleDialog: This alchemical device sure is usefull, one could make anything
       without the need of a university laboratory.
     actorIndex: 0
@@ -26,8 +26,10 @@ MonoBehaviour:
   - simpleDialog: If someone manages to make it, it would move the whole earth, gold
       would be useless.
     actorIndex: 0
-  - simpleDialog: Yes. Anyway, i've got this idea invisible ink. I am pretty sure
-      we can make it on the alchemical device, are you coming with me?
+  - simpleDialog: Yes. Anyway, ive got this idea invisible ink. I am pretty sure
+      we can make it on the alchemical device, are you coming with me?Yes. Anyway,
+      ive got this idea invisible ink. I am pretty sure we can make it on the alchemical
+      device, are you coming with me?
     actorIndex: 1
   - simpleDialog: I`ll go, but what do you need invisible ink for?
     actorIndex: 0
