@@ -3592,7 +3592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1962943103, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
       propertyPath: AdditionalLayers.Array.data[0].w
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1962943103, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
       propertyPath: AdditionalLayers.Array.data[0].x
@@ -3600,15 +3600,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1962943103, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
       propertyPath: AdditionalLayers.Array.data[0].y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1962943103, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
       propertyPath: AdditionalLayers.Array.data[0].z
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1962943103, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
       propertyPath: AdditionalLayers.Array.data[1].w
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1962943103, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
       propertyPath: AdditionalLayers.Array.data[1].x
@@ -3616,15 +3616,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1962943103, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
       propertyPath: AdditionalLayers.Array.data[1].y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1962943103, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
       propertyPath: AdditionalLayers.Array.data[1].z
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1962943103, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
       propertyPath: AdditionalLayers.Array.data[2].w
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1962943103, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
       propertyPath: AdditionalLayers.Array.data[2].x
@@ -3632,11 +3632,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1962943103, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
       propertyPath: AdditionalLayers.Array.data[2].y
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1962943103, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
       propertyPath: AdditionalLayers.Array.data[2].z
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3830589818702739256, guid: 15a2cf13127aae24e91ed53a307bd871, type: 3}
       propertyPath: m_Name

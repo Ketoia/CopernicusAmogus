@@ -87,16 +87,16 @@ public class WorldStateManager : MonoBehaviour
         {
             switch (atoms[i].CurrentId.x)
             {
-                case 0:
+                case 1:
                     layer1++;
                     break;
-                case 1:
+                case 2:
                     layer2++;
                     break;
-                case 2:
+                case 3:
                     layer3++;
                     break;
-                case 3:
+                case 4:
                     layer4++;
                     break;
                 default:
