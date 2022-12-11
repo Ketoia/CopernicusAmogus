@@ -74,16 +74,21 @@ public class WorldStateManager : MonoBehaviour
         SetMousePos();
         currentState.UpdateState(this);
 
-
-
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            Vector2 mousePos = new Vector2(mousePosition.x, mousePosition.z);
-            Vector2 index = woodenButtons.CheckIndex(mousePos);
-            Vector2 hexPos = new Vector2(hexs[index].HexPos.x, hexs[index].HexPos.z);
-            Vector2 dir = woodenButtons.CheckDirection(hexPos, mousePos);
-            UpdateAtoms(woodenButtons.CheckOnDirection(hexPos, dir, Hexs));
-
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.CompareTag("Button"))
+                {
+                    Vector2 mousePos = new Vector2(mousePosition.x, mousePosition.z);
+                    Vector2 index = woodenButtons.CheckIndex(mousePos);
+                    Vector2 hexPos = new Vector2(hexs[index].HexPos.x, hexs[index].HexPos.z);
+                    Vector2 dir = woodenButtons.CheckDirection(hexPos, mousePos);
+                    UpdateAtoms(woodenButtons.CheckOnDirection(hexPos, dir, Hexs));
+                }
+            }
         }
     }
 

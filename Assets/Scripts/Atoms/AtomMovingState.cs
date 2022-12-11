@@ -42,7 +42,7 @@ public class AtomMovingState : AtomBaseState
                 }
                 else
                 {
-                    item.Level++;
+                   // item.Level++;
                     
                     item.World.Atoms.RemoveAt(i);
                     atom.DestroyThis();
