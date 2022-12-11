@@ -45,6 +45,7 @@ public class AtomIdleState : AtomBaseState
             item.SetPos(item.CurrentId);
 
         }
+        EventManager.PlanetReturnEvent -= PlanetReturn;
     }
     public override void UpdateState(AtomStateManager item)
     {
@@ -69,6 +70,5 @@ public class AtomIdleState : AtomBaseState
     {
         EventManager.AtomRotationEvent -= SwitchToRotate;
         EventManager.AtomMoveEvent -= SwitchToMove;
-        EventManager.PlanetReturnEvent -= PlanetReturn;
     }
 }

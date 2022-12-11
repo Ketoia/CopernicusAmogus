@@ -81,10 +81,11 @@ public class WorldStateManager : MonoBehaviour
         int layer1 = 0;
         int layer2 = 0;
         int layer3 = 0;
+        int layer4 = 0;
 
         for (int i = 0; i < atoms.Count; i++)
         {
-            switch (i)
+            switch (atoms[i].CurrentId.x)
             {
                 case 0:
                     layer1++;
@@ -96,18 +97,22 @@ public class WorldStateManager : MonoBehaviour
                     layer3++;
                     break;
                 case 3:
+                    layer4++;
                     break;
                 default:
                     break;
             }
             //list[atoms[i].CurrentId.x]++;
         }
-        if (quest == list)
+        for (int i = 0; i < quest.Count; i++)
         {
-            MissionManager.instance.FinishQuest();
-            quest = MissionManager.instance.GenerateNewMission();
+            if (quest[0] == layer1 && quest[1] == layer2 && quest[2] == layer3 && quest[3] == layer4)
+            {
+                MissionManager.instance.FinishQuest();
+                quest = MissionManager.instance.GenerateNewMission();
+            }
         }
-        Debug.Log(quest.Count + " " + list.Count);
+        Debug.Log(quest.Count + " " + layer1 + " " + layer2 + " " + layer3 + " " + layer4);
         //If true to        MissionManager.instance.FinishQuest();
         //                  quest = MissionManager.instance.GenerateNewMission();
     }

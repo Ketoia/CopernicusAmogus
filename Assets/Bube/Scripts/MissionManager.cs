@@ -11,7 +11,7 @@ public class MissionManager : MonoBehaviour
     public UnityEngine.UI.Text text;
     public DialogSystem dialogSystem;
     public List<Vector4> AdditionalLayers;
-    private int counter = 0;
+    public int counter = 0;
 
     private void Awake()
     {
