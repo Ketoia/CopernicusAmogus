@@ -5,8 +5,8 @@ using UnityEngine;
 public class AtomStateManager : MonoBehaviour
 {
     //[SerializeField] private List<GameObject> atoms = new List<GameObject>();
-    [SerializeField] private WorldStateManager world = new WorldStateManager();
-    [SerializeField] private Vector2Int startPosition = new Vector2Int();
+    /*[SerializeField] */private WorldStateManager world = new WorldStateManager();
+    /*[SerializeField] private Vector2Int startPosition = new Vector2Int();*/
     //[SerializeField] private Vector2 startPosition = new Vector2();
 
     public AtomIdleState idleState = new AtomIdleState();
@@ -24,6 +24,7 @@ public class AtomStateManager : MonoBehaviour
     private Vector2Int previousCelestianBodyHexId;
     private List<Vector2> allFlexibleIndex;
     private HexMovingState hexMovingState;
+    private GameObject prefab;
 
     public Vector2Int CurrentId { get { return currentId; } set { currentId = value; } }
     public Vector2Int PreviousCelestianBodyHexId { get { return previousCelestianBodyHexId; } set { previousCelestianBodyHexId = value; } }
@@ -31,13 +32,13 @@ public class AtomStateManager : MonoBehaviour
     public HexMovingState HexMovingState { get { return hexMovingState; } set { hexMovingState = value; } }
     public List<Vector2> AllFlexibleIndex => allFlexibleIndex;
 
-    public WorldStateManager World => world;
+    public WorldStateManager World { get { return world; } set { world = value; } }
     
 
     void Start()
     {
         //SetPos(startPosition);
-        currentId = startPosition;
+        //currentId = startPosition;
         currentState = idleState;
 
         currentState.EnterState(this);
@@ -47,6 +48,32 @@ public class AtomStateManager : MonoBehaviour
     {
         Vector3 newPos = new Vector3(world.Hexs[position].HexPos.x, 0, world.Hexs[position].HexPos.z);
         transform.position = newPos;
+        SetVisualisation(level);
+    }
+
+    public void SetVisualisation(int level)
+    {
+        switch (level)
+        {
+            case 0:
+                if (prefab != null) Destroy(prefab);
+                prefab = Instantiate(world.Prefabs[0], transform);
+                break;
+            case 1:
+                if (prefab != null) Destroy(prefab);
+                prefab = Instantiate(world.Prefabs[1], transform);
+                break;
+            case 2:
+                if (prefab != null) Destroy(prefab);
+                prefab = Instantiate(world.Prefabs[2], transform);
+                break;
+            case 3:
+                if (prefab != null) Destroy(prefab);
+                prefab = Instantiate(world.Prefabs[3], transform);
+                break;
+            default:
+                break;
+        }
     }
     //private void SetPos(Vector3 position)
     //{

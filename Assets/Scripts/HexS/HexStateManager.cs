@@ -7,6 +7,7 @@ public class HexStateManager : MonoBehaviour
     //[SerializeField] private List<GameObject> atoms = new List<GameObject>();
     [SerializeField] private WorldStateManager world = new WorldStateManager();
     [SerializeField] private Vector2Int startPosition = new Vector2Int();
+    [SerializeField] private int level;
 
     public HexIdleState idleState = new HexIdleState();
     public HexEntryMovingState entryMovingState = new HexEntryMovingState();
@@ -18,6 +19,7 @@ public class HexStateManager : MonoBehaviour
 
     //private List<HexInfo> hexs;
     //private Vector2 iD;
+    
     private Vector3 lastMousePos;
     private Vector2Int currentId;
     
@@ -28,7 +30,7 @@ public class HexStateManager : MonoBehaviour
     
     public List<Vector2Int> OrbitIndexes => orbitIndexes;
     public WorldStateManager World => world;
-    
+    public int Level => level;
 
     void Start()
     {

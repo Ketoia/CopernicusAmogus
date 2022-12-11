@@ -11,11 +11,10 @@ public class WorldStateManager : MonoBehaviour
     [SerializeField] private GameObject prefab;
     [SerializeField] private GameObject testPrefab;
 
-    [SerializeField] private List<AtomStateManager> atoms;
+    private List<AtomStateManager> atoms = new List<AtomStateManager>();
     [SerializeField] private List<HexStateManager> celestials;
 
-    [Header("Zagadki")]
-    [SerializeField] private List<LevelInfo> levelInfos;
+    [SerializeField] private List<GameObject> prefabs;
 
     public WorldIdleState idleState = new WorldIdleState();
     public WorldMovingState movingState = new WorldMovingState();
@@ -34,7 +33,7 @@ public class WorldStateManager : MonoBehaviour
     //private List<HexInfo> hexs = new List<HexInfo>();
 
 
-
+    
     public List<AtomStateManager> Atoms => atoms;
     public List<HexStateManager> Celestals => celestials;
     public Dictionary<Vector2, HexInfo> Hexs => hexs;
@@ -43,6 +42,7 @@ public class WorldStateManager : MonoBehaviour
     public Vector3 MousePosition => mousePosition;
 
     public List<Vector2Int> AllFlexibleIndex => allFlexibleIndex;
+    public List<GameObject> Prefabs => prefabs;
     public int MaxLayer => maxLayer;
     public int MaxPizzaSlices => maxPizzaSlices;
 
@@ -74,16 +74,63 @@ public class WorldStateManager : MonoBehaviour
         SetMousePos();
         currentState.UpdateState(this);
 
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButtonDown(0))
         {
             Vector2 mousePos = new Vector2(mousePosition.x, mousePosition.z);
             Vector2 index = woodenButtons.CheckIndex(mousePos);
             Vector2 hexPos = new Vector2(hexs[index].HexPos.x, hexs[index].HexPos.z);
             Vector2 dir = woodenButtons.CheckDirection(hexPos, mousePos);
-            woodenButtons.CheckOnDirection(hexPos, dir, Hexs);
+            UpdateAtoms(woodenButtons.CheckOnDirection(hexPos, dir, Hexs));
+
         }
     }
 
+    public void UpdateAtoms(List<Vector2Int> changedHexes)
+    {
+        for (int i = 0; i < changedHexes.Count; i++)
+        {
+            bool temp = true;
+            for (int y = 0; y < atoms.Count; y++)
+            {
+                if (atoms[y].CurrentId == changedHexes[i])
+                {
+                    atoms[y].DestroyThis();
+                    atoms.RemoveAt(y);
+                    temp = false;
+                    break;
+                }
+            }
+            if (temp)
+            {
+                for (int x = 0; x < celestials.Count; x++)
+                {
+
+                    if (celestials[x].CurrentId == changedHexes[i])
+                    {
+                        break;
+                    }
+                    if (celestials[x].CurrentId.x == changedHexes[i].x)
+                    {
+                        AddAtom(changedHexes[i], celestials[x].Level);
+                        break;
+                    }
+                }
+            }
+
+        }
+
+    }
+
+    public void AddAtom(Vector2Int index, int level)
+    {
+        GameObject atom = new GameObject();
+        AtomStateManager atomManager = atom.AddComponent<AtomStateManager>();
+        atomManager.level = level;
+        atomManager.CurrentId = index;
+        atomManager.World = this;
+        atoms.Add(atomManager);
+    }
+    
     private void FixedUpdate()
     {
         currentState.FixedUpdateState(this);
