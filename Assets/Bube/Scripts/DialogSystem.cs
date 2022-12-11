@@ -18,6 +18,7 @@ public class DialogSystem : MonoBehaviour
     public List<Actor> actors;
 
     public Dialog dialogDebug;
+    public AudioSource audioSource;
 
     public void StartDialogDebug()
     {
@@ -71,6 +72,29 @@ public class DialogSystem : MonoBehaviour
         }
     }
 
+    private IEnumerator SlowDownAudio(float time)
+    {
+        float dtime = 0;
+        while(dtime < time)
+        {
+            audioSource.volume = Mathf.Lerp(1, 0, dtime / time);
+            dtime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        audioSource.Stop();
+    }
+
+    private IEnumerator SlowUpAudio(float time)
+    {
+        float dtime = 0;
+        while (dtime < time)
+        {
+            audioSource.volume = Mathf.Lerp(0, 1, dtime / time);
+            dtime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
     private IEnumerator ShowDialog(Dialog dialog)
     {
         yield return new WaitForSeconds(1);
@@ -81,6 +105,9 @@ public class DialogSystem : MonoBehaviour
             Actor ActualActor = actors[dialog.dialogProperties[i].actorIndex];
             StartCoroutine(ShowTextName(ActualActor));
             ActualActor.Show();
+            audioSource.clip = ActualActor.audioClip;
+            audioSource.Play();
+            StartCoroutine(SlowUpAudio(0.1f));
 
             textDialog.text = "";
             yield return new WaitForSeconds(0.5f); //Wait for player to come
@@ -98,6 +125,8 @@ public class DialogSystem : MonoBehaviour
                 textPressToContinue.text += txt[j];
                 yield return new WaitForSeconds(0.025f);
             }
+
+            StartCoroutine(SlowDownAudio(1));
             yield return new WaitUntil(() => Input.anyKeyDown);
             textPressToContinue.gameObject.SetActive(false);
             ActualActor.Hide();

@@ -40,9 +40,6 @@ public class WoodenButtons
         points[4] = new Vector2(-0.5f, -sqrt3by2);
         points[5] = new Vector2(0.5f, -sqrt3by2);
 
-        Debug.DrawLine(new Vector3(mousePosition.x, 0, mousePosition.y), new Vector3(startPos.x, 0, startPos.y));
-        Debug.LogError(mousePosition + ", " + startPos);
-
         return points[directionIndex].normalized;
     }
 

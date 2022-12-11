@@ -74,6 +74,8 @@ public class WorldStateManager : MonoBehaviour
         SetMousePos();
         currentState.UpdateState(this);
 
+
+
         if(Input.GetMouseButtonDown(0))
         {
             Vector2 mousePos = new Vector2(mousePosition.x, mousePosition.z);
