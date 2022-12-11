@@ -33,7 +33,7 @@ public class WorldStateManager : MonoBehaviour
     //private List<HexInfo> hexs = new List<HexInfo>();
 
 
-    
+    private List<int> quest;
     public List<AtomStateManager> Atoms => atoms;
     public List<HexStateManager> Celestals => celestials;
     public Dictionary<Vector2, HexInfo> Hexs => hexs;
@@ -69,7 +69,14 @@ public class WorldStateManager : MonoBehaviour
         currentState.EnterState(this);
 
         MissionManager.instance.FinishQuest();
-        List<int> quest = MissionManager.instance.GenerateNewMission();
+        quest = MissionManager.instance.GenerateNewMission();
+    }
+
+    void checkQuest()
+    {
+        //Sprawdzaj\
+        //If true to        MissionManager.instance.FinishQuest();
+        //                  quest = MissionManager.instance.GenerateNewMission();
     }
 
     void Update()
