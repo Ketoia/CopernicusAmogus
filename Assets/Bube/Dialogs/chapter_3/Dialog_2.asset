@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
+  m_Name: Dialog_2
+  m_EditorClassIdentifier: 
+  dialogProperties:
+  - simpleDialog: Um how best to put it? It will be more difficult than i imagined
+      when writing the draft.
+    actorIndex: 0
+  - simpleDialog: Copernicus! We are being besieged.
+    actorIndex: 5
+  - simpleDialog: I was busy, why now of all times. Like that ill never finish my
+      thesis.
+    actorIndex: 0
+  - simpleDialog: You have been apointed to lead the defense.
+    actorIndex: 5
+  - simpleDialog: Lets get it over quick. Best offense is allways defense as they
+      say.
+    actorIndex: 0
+  - simpleDialog: The other way around Copernicus.
+    actorIndex: 5
+  - simpleDialog: Ah yes, offense is always the anwser.
+    actorIndex: 0
+  - simpleDialog: Great thinking Copernicus. We`ll charge them and crush them in
+      open battle.
+    actorIndex: 5
+  - simpleDialog: More like we`ll send scermish parties to nibble at their lines.
+    actorIndex: 0
+  - simpleDialog: This is no way to fight!
+    actorIndex: 5
+  - simpleDialog: But this is a way to prevail, ill prepare something to aid us in
+      victory.
+    actorIndex: 0
+  - simpleDialog: What will it be?
+    actorIndex: 5
+  - simpleDialog: You`ll see when im finished with it.
+    actorIndex: 0

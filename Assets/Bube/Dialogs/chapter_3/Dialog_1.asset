@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
+  m_Name: Dialog_1
+  m_EditorClassIdentifier: 
+  dialogProperties:
+  - simpleDialog: Youve been looking for quite a while uncle.
+    actorIndex: 0
+  - simpleDialog: Its nothing Nicolaus, im just getting old.
+    actorIndex: 2
+  - simpleDialog: I think i have it somewhere.
+    actorIndex: 0
+  - simpleDialog: What is it you are looking for.
+    actorIndex: 2
+  - simpleDialog: Oh here it is. My alchemical device, i havent used since i bought
+      it.
+    actorIndex: 0
+  - simpleDialog: Alchemy, really now Nicolaus?
+    actorIndex: 2
+  - simpleDialog: Um yes, no worry uncle this but a special scale, ill prepare some
+      medicine for you.
+    actorIndex: 0

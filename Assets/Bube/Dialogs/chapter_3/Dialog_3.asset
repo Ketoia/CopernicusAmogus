@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
+  m_Name: Dialog_3
+  m_EditorClassIdentifier: 
+  dialogProperties:
+  - simpleDialog: All this gunpowder is drentched, what use will the cannons be now?
+    actorIndex: 0
+  - simpleDialog: No need for cannons anyway Copernicus, the city will hold up. With
+      your lead there is no chance in hell for these pesky germans to breach our
+      walls.
+    actorIndex: 5
+  - simpleDialog: Maybe true, but we`ll be better of prepared for the impossible.
+    actorIndex: 0
+  - simpleDialog: What even are you going to do about?
+    actorIndex: 5
+  - simpleDialog: Uhm well, how to put it. Using these elemental proxies on this
+      alchemical device here ill create gunpowder.
+    actorIndex: 0
+  - simpleDialog: Yes. Right, and from what will you make the gunpowder.
+    actorIndex: 5
+  - simpleDialog: From base metals and basic elements, fire, water and all that.
+    actorIndex: 0
+  - simpleDialog: So as i understand you can change for example iron and fire or
+      as you put it base metals and basic elements into gunpowder?
+    actorIndex: 5
+  - simpleDialog: Essentialy yes, there is an explanation to how it works. But ill
+      leave it for another time.
+    actorIndex: 0
+  - simpleDialog: Ill pass. So not only are you a strategist, a doctor of medicine,
+      and accountant, but also a magician. Is that right Copernicus?
+    actorIndex: 5
+  - simpleDialog: Not a magician! Its not magic, its science.
+    actorIndex: 0
+  - simpleDialog: If you are a magician couldnt you just drive away the Teutons on
+      your own? With your magic powers?
+    actorIndex: 5
+  - simpleDialog: No.
+    actorIndex: 0

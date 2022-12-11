@@ -12,26 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
   m_Name: Dialog_2
   m_EditorClassIdentifier: 
-  Dialogs:
-  - simpleDialog: Enzio, do all alchemists use these alchemical devices?
+  dialogProperties:
+  - simpleDialog: Oh i think i have one somewhere, ill be back in a minute.
     actorIndex: 0
   - simpleDialog: Oh. No, not at all. The device is but a new invention, when i was
       younger i used to draw glyphs by hand wohoho. Now the machine took all the
       labour out of it.
     actorIndex: 4
-  - simpleDialog: 
+  - simpleDialog: Glyphs?
     actorIndex: 0
-  - simpleDialog: 
+  - simpleDialog: Didnt read much about it did you? Wohohoho I dont blame you, knowledge
+      of this is hard to come by.
     actorIndex: 4
-  - simpleDialog: 
+  - simpleDialog: The device somehow makes this glyphs inside right? Never had a
+      chance to look inside it.
     actorIndex: 0
-  - simpleDialog: 
+  - simpleDialog: The device wasnt yours was it? Breaking it would have put in quite
+      the trouble wohoho.
     actorIndex: 4
-  - simpleDialog: 
+  - simpleDialog: Lets say it was borrowed.
     actorIndex: 0
-  - simpleDialog: 
+  - simpleDialog: I`ll show you how the machines works later. Now we`ll make some
+      parchment, my special recipe.
     actorIndex: 4
-  - simpleDialog: 
+  - simpleDialog: Why dont you buy some?
     actorIndex: 0
-  - simpleDialog: 
+  - simpleDialog: It wont me mere parchment you could buy. This one is decay prove,
+      it will outlast us all wohohoho.
     actorIndex: 4

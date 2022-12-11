@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
+  m_Name: Dialog_8
+  m_EditorClassIdentifier: 
+  dialogProperties:
+  - simpleDialog: Some time to relax really is good for the mind, and i tought the
+      italians were just lazy with all their siestas and what not.
+    actorIndex: 0
+  - simpleDialog: Wohoho indeed, as with all things there needs to be a balance.
+    actorIndex: 4
+  - simpleDialog: Such nice weather outside, we could try making some glyphs. I tought
+      up an idea to prevent our previous shortcomings.
+    actorIndex: 0
+  - simpleDialog: Rest makes for a sharper mind, so what is this idea of yours about?
+    actorIndex: 4
+  - simpleDialog: We`ll embed particles of chalk inside a metal rod, then heat up
+      one end of it so that it will make drops like wax candles. In that way we could
+      draw glyphs without the risk of unexpected accidents.
+    actorIndex: 0
+  - simpleDialog: Good idea, but what about if there will be mistake on your part?
+    actorIndex: 4
+  - simpleDialog: I`ll manage.
+    actorIndex: 0
+  - simpleDialog: Wohoho i`ll be looking forward to it.
+    actorIndex: 4

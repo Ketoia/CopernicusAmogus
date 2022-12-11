@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
+  m_Name: Dialog_6
+  m_EditorClassIdentifier: 
+  dialogProperties:
+  - simpleDialog: Ive read some about glyphs, king Solomon used them to build his
+      temple. How far does the alchemical practice go?
+    actorIndex: 0
+  - simpleDialog: Oh the story with summoning demons? Its a good one indeed. Alchemy
+      goes back to even before written history, as long as people were looking at
+      the sky in wonder there were practioners.
+    actorIndex: 4
+  - simpleDialog: Did they also use glyphs, and are there any records of it?
+    actorIndex: 0
+  - simpleDialog: So curious you are wohohoh. I think all that is left of it is word
+      of mouth alone, stories, legends. Perhaps there were some records in the library
+      of Alehandria, but tough luck finding it now wohoho.
+    actorIndex: 4
+  - simpleDialog: If they used your parchment it could have been avoided. Who could
+      even fathom the magnitute of knowledge lost.
+    actorIndex: 0
+  - simpleDialog: If only wohoho, perhaps we were born into the wrong age, time will
+      tell. Copernicus if you are so curious of the old practices we could try them
+      out. Firstly for making glyphs we will need special chalk.
+    actorIndex: 4
+  - simpleDialog: Lead the way.
+    actorIndex: 0

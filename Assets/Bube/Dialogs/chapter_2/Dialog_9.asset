@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
+  m_Name: Dialog_9
+  m_EditorClassIdentifier: 
+  dialogProperties:
+  - simpleDialog: It didnt work, but why.
+    actorIndex: 0
+  - simpleDialog: The solder method worked when we tested it before, why not now?
+    actorIndex: 0
+  - simpleDialog: Yes you nearly send my mustache to the other side with that ball
+      of fire wohohoho. This glyph is quite complex, maybe you made a mistake in
+      your calculations.
+    actorIndex: 4
+  - simpleDialog: Impossible, i looked over them time and time again. They are etched
+      into my mind by now.
+    actorIndex: 0
+  - simpleDialog: Have you tried replacing the symbol for fire with that of water?
+    actorIndex: 4
+  - simpleDialog: But. But that doesnt make sense.
+    actorIndex: 0
+  - simpleDialog: Negatives and positives, maybe they arent that different as it
+      would seem, you could just try.
+    actorIndex: 4
+  - simpleDialog: I dont know why it does. But it works now, oh the mysteries of
+      the universe are far beyond mortal minds to comprehend.
+    actorIndex: 0
+  - simpleDialog: There is a method to the madness, it was allways my go to when
+      i was younger wohoho.
+    actorIndex: 4
+  - simpleDialog: Looking at it now, it`ll be hard to clean up. All these balls of
+      fire circling around, cant come near without getting burned.
+    actorIndex: 0
+  - simpleDialog: We could always use a different courtyard, itll stay as a display
+      piece, guest will be amazed wohohoho.
+    actorIndex: 4
+  - simpleDialog: Time to make some more precise instruments, lets test my ideas
+      in practice.
+    actorIndex: 0

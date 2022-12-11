@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
+  m_Name: Dialog_10
+  m_EditorClassIdentifier: 
+  dialogProperties:
+  - simpleDialog: Sun being in the middle of the universe is an interesting proposition.
+    actorIndex: 4
+  - simpleDialog: I`ve been thinking about it for quite a while, heard someone say
+      its blasphemous.
+    actorIndex: 0
+  - simpleDialog: This is what happens with new ideas, changing what was tought true
+      doesnt sit well with everybody.
+    actorIndex: 4
+  - simpleDialog: I`ve got a letter the other day, ill need to finish my degree.
+      They are saying i am slacking of with my studies, which isnt entirely false.
+      But I think of it as taking my time, whats the rush about.
+    actorIndex: 0
+  - simpleDialog: When it comes to studying, ive never told you how the device works.
+      You were so preocupied you never asked wohohoho.
+    actorIndex: 4
+  - simpleDialog: Ah yes do tell.
+    actorIndex: 0
+  - simpleDialog: Inside the device there is an universal glyph, made in a similar
+      way to what you did back in the courtyard. Elemntal proxies we place on the
+      board are precisely weight so that the gears inside rotate parts of the glyph
+      to the desired elements.
+    actorIndex: 4
+  - simpleDialog: So its a more complex version of a scale right?
+    actorIndex: 0
+  - simpleDialog: Basically thats it. Hence come the constraints, the device is limited
+      by the glyph placed inside. I think the gears inside will need some lubrication.
+    actorIndex: 4

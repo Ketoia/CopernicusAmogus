@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
+  m_Name: Dialog_11(epilogue)
+  m_EditorClassIdentifier: 
+  dialogProperties:
+  - simpleDialog: Buongiorno Copernicus. Took you long enough with the degree, but
+      why did you take your exams in Ferrera instead?
+    actorIndex: 3
+  - simpleDialog: Buongiorno  professor. Well it was cheaper, i bought some equipment
+      with the leftover money.
+    actorIndex: 0
+  - simpleDialog: Well, good that in some way you still made studying your first
+      priority.
+    actorIndex: 3
+  - simpleDialog: Thank you for all the help along the way, untill we meet next time
+      arrivederci.
+    actorIndex: 0
+  - simpleDialog: You too Copernicus arrivederci.
+    actorIndex: 3
+  - simpleDialog: Buongiorno Enzio.
+    actorIndex: 0
+  - simpleDialog: Copernicus! I see you bought yourself an alchemical device of your
+      own, you could have asked, i would have given you mine.
+    actorIndex: 4
+  - simpleDialog: You could have said so earlier.
+    actorIndex: 0
+  - simpleDialog: Wohohoho, congratulations on your degree. So you are going back
+      to poland i presume?
+    actorIndex: 4
+  - simpleDialog: Yes, but if ill find a chance ill come and visit.
+    actorIndex: 0
+  - simpleDialog: I dont think ill live long enough but sure, you are always welcome.
+    actorIndex: 4
+  - simpleDialog: Oh yes i gathered some material for you to go through. Im sure
+      youll find something usefull in there, and remember Copernicus. In principio.
+    actorIndex: 4
+  - simpleDialog: In the beginning what?
+    actorIndex: 0
+  - simpleDialog: I dont remember the rest of the line, but youll know when youll
+      know. Arivederci Copernicus wohohoho.
+    actorIndex: 4

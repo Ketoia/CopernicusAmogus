@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
+  m_Name: Dialog_5
+  m_EditorClassIdentifier: 
+  dialogProperties:
+  - simpleDialog: On closer inspection these paints really are remarkable.
+    actorIndex: 0
+  - simpleDialog: Maybe you really are an artist Copernicus wohohoho.
+    actorIndex: 4
+  - simpleDialog: Going back to the magnum opus topic, Ive heard there are four stages
+      to making one.
+    actorIndex: 0
+  - simpleDialog: Yes, nigredo, albedo, citrinitas and rubedo.
+    actorIndex: 4
+  - simpleDialog: If no one has managed to make it then how do we even know these
+      stages?
+    actorIndex: 0
+  - simpleDialog: It is the same as in astronomy, one can make predictions.
+    actorIndex: 4
+  - simpleDialog: How far have you managed to go with it Enzio?
+    actorIndex: 0
+  - simpleDialog: Oh i never even started on the philosophers stone, i was seeking
+      a different goal. Alchimical mirror it is called, its a mirrored version of
+      the philosopher stone.
+    actorIndex: 4
+  - simpleDialog: Then how is it any different?
+    actorIndex: 0
+  - simpleDialog: Well, mirrored reflections arent the same as the original. They
+      have different properties. You know what Copernicus, lets make one now.
+    actorIndex: 4
+  - simpleDialog: Alchimical mirror?
+    actorIndex: 0
+  - simpleDialog: No just a regural one wohohoho.
+    actorIndex: 4

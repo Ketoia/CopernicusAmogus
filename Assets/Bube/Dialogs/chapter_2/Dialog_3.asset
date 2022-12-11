@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ce08a4d3d1f2242acd8cbad6cb73f5, type: 3}
+  m_Name: Dialog_3
+  m_EditorClassIdentifier: 
+  dialogProperties:
+  - simpleDialog: Amazing, with this knowledge wont be lost to the ages.
+    actorIndex: 0
+  - simpleDialog: I hope so wohohoho. I tried selling it, but merchants got on my
+      case. Everlasting things arent that good for business it seems.
+    actorIndex: 4
+  - simpleDialog: But it seems it has its drawbacks, i see that some inks dont stick
+      to it so well.
+    actorIndex: 0
+  - simpleDialog: Yes its still not perfect, you need special inks to write on it.
+      Painters also didnt like it.
+    actorIndex: 4
+  - simpleDialog: It would be too expensive anyway.
+    actorIndex: 0
+  - simpleDialog: If someone cares enough about longedivity theyll pay for it, i
+      sold a Holy Bible made with it to the church, theyve got deep pockets wohohoho.
+    actorIndex: 4
+  - simpleDialog: So what we`ll be making next?
+    actorIndex: 0
+  - simpleDialog: There is this italian painter, Leonardo they call him. Trully a
+      great man, started studying alchemy just to find a way to make better paints
+      wohoho. One could call him jack of all traits.
+    actorIndex: 4
+  - simpleDialog: 'Before that architecture, engineering and many more. One could
+      call him jack of all traits. '
+    actorIndex: 4
+  - simpleDialog: And master of none?
+    actorIndex: 0
+  - simpleDialog: Wohoho, master of all young Nicolaus. You will be remaking his
+      recipe for practice.
+    actorIndex: 4
