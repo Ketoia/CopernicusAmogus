@@ -9,7 +9,7 @@ public class EventManager : MonoBehaviour
 
     public static event Action<int> AtomRotationEndEvent;
 
-    public static event Action<Vector2Int> AtomMoveEvent;
+    public static event Action<Vector2Int, HexMovingState> AtomMoveEvent;
 
     public static event Action<Vector2Int> AtomMoveEndEvent;
 
@@ -25,9 +25,9 @@ public class EventManager : MonoBehaviour
         AtomRotationEndEvent?.Invoke(hexIndexY);
     }
 
-    public static void StartAtomMoveEvent(Vector2Int hexIndex)
+    public static void StartAtomMoveEvent(Vector2Int hexIndex, HexMovingState hexMovingState)
     {
-        AtomMoveEvent?.Invoke(hexIndex);
+        AtomMoveEvent?.Invoke(hexIndex, hexMovingState);
     }
 
     public static void StartAtomMoveEndEvent(Vector2Int hexIndex)

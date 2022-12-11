@@ -15,6 +15,7 @@ public class AtomIdleState : AtomBaseState
 
     private void SwitchToRotate(int layerIndex, int hexIndexY, HexRotatingState hexRotatingState)
     {
+
         if (layerIndex == item.CurrentId.x)
         {
             //Debug.Log("rotate");
@@ -24,10 +25,11 @@ public class AtomIdleState : AtomBaseState
         }
     }
 
-    private void SwitchToMove(Vector2Int hexIndex)
+    private void SwitchToMove(Vector2Int hexIndex, HexMovingState hexMovingState)
     {
         if (item.World.AllFlexibleIndex.Contains(item.CurrentId) && item.CurrentId.x == hexIndex.x)
         {
+            item.HexMovingState = hexMovingState;
             item.PreviousCelestianBodyHexId = hexIndex; 
             item.SwitchState(item.movingState);
         }

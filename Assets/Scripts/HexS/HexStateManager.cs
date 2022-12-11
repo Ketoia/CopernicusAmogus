@@ -7,6 +7,7 @@ public class HexStateManager : MonoBehaviour
     //[SerializeField] private List<GameObject> atoms = new List<GameObject>();
     [SerializeField] private WorldStateManager world = new WorldStateManager();
     [SerializeField] private Vector2Int startPosition = new Vector2Int();
+    [SerializeField] private int level;
 
     public HexIdleState idleState = new HexIdleState();
     public HexEntryMovingState entryMovingState = new HexEntryMovingState();
@@ -18,6 +19,7 @@ public class HexStateManager : MonoBehaviour
 
     //private List<HexInfo> hexs;
     //private Vector2 iD;
+    
     private Vector3 lastMousePos;
     private Vector2Int currentId;
     
@@ -28,7 +30,7 @@ public class HexStateManager : MonoBehaviour
     
     public List<Vector2Int> OrbitIndexes => orbitIndexes;
     public WorldStateManager World => world;
-    
+    public int Level => level;
 
     void Start()
     {
@@ -141,4 +143,25 @@ public class HexStateManager : MonoBehaviour
 
         return newList;
     }
+    public Vector2Int UpdateCurrentMoveId(Vector2Int previousCelestianBodyHexId, Vector2Int hexIndex)
+    {
+
+        int layersCount = hexIndex.x - previousCelestianBodyHexId.x;
+
+        int pizzaSlice = currentId.y / currentId.x;
+        int diff = pizzaSlice * layersCount;
+
+        //Debug.Log(gameObject.name + " " + new Vector2Int(previousCelestianBodyHexId.x, currentId.y + diff));
+        return new Vector2Int(hexIndex.x, currentId.y + diff);
+        //currentId.x + layersCount;
+        //currentId.y += diff;
+
+    }
+    //public bool IsFlexible()
+    //{
+    //    if (world.)
+    //    {
+
+    //    }
+    //}
 }

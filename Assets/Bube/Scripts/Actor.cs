@@ -22,6 +22,8 @@ public class Actor : MonoBehaviour
     private bool isShowing = false;
     private bool isHiding = false;
 
+    public AudioClip audioClip;
+
     public void Show()
     {
         if (isShow) return;

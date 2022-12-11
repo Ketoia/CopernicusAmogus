@@ -40,15 +40,12 @@ public class WoodenButtons
         points[4] = new Vector2(-0.5f, -sqrt3by2);
         points[5] = new Vector2(0.5f, -sqrt3by2);
 
-        Debug.DrawLine(new Vector3(mousePosition.x, 0, mousePosition.y), new Vector3(startPos.x, 0, startPos.y));
-        Debug.LogError(mousePosition + ", " + startPos);
-
         return points[directionIndex].normalized;
     }
 
-    public List<Vector2> CheckOnDirection(Vector2 startPos, Vector2 direction, Dictionary<Vector2, HexInfo> hexagons)
+    public List<Vector2Int> CheckOnDirection(Vector2 startPos, Vector2 direction, Dictionary<Vector2, HexInfo> hexagons)
     {
-        List<Vector2> positions = new List<Vector2>();
+        List<Vector2Int> positions = new List<Vector2Int>();
         List<GameObject> SpanedGameobjects = new List<GameObject>();
         foreach (var item in hexagons.Keys)
         {
@@ -61,7 +58,7 @@ public class WoodenButtons
             {
                 Debug.Log("Good: " + item);
                 Debug.DrawLine(new Vector3(startPos.x, 1, startPos.y), new Vector3(hexPos.x, 1, hexPos.z));
-                positions.Add(item);
+                positions.Add(new Vector2Int((int)item.x, (int)item.y));
                 //var obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 //obj.transform.position = hexPos;
             }
