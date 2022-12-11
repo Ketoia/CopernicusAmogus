@@ -6,7 +6,11 @@ public class HexMovingState : HexBaseState
 {
     private HexStateManager item;
     private Vector2Int firstPosIndex;
-    private Vector3 lastPosition;
+
+    private Vector2Int prevIndex;
+    private Vector2Int newIndex;
+
+    public float vecDot = 0;
 
     private List<Vector2Int> indexesToMoveForward;
     public override void EnterState(HexStateManager item)
@@ -15,11 +19,17 @@ public class HexMovingState : HexBaseState
         firstPosIndex = item.CurrentId;
         indexesToMoveForward = GetIndexesToMoveForward(item.CurrentId, item.World.MaxLayer);
 
-        EventManager.StartAtomMoveEvent(item.CurrentId);
+        EventManager.StartAtomMoveEvent(item.CurrentId, item.movingState);
     }
     public override void UpdateState(HexStateManager item)
     {
-        item.CurrentId = item.GetNearestPoint(indexesToMoveForward);
+        //prevIndex = item.CurrentId;
+        newIndex = item.GetNearestPoint(indexesToMoveForward);
+        //if (prevIndex != newIndex)
+        //{
+            
+        //}
+
 
         Vector2 indexVec = item.V3ToV2(item.World.Hexs[item.CurrentId].HexPos) - item.V3ToV2(item.World.transform.position).normalized;
 
@@ -27,8 +37,8 @@ public class HexMovingState : HexBaseState
 
         float firstLayerDist = item.V3ToV2(item.World.Hexs[indexesToMoveForward[0]].HexPos).magnitude;
         float LastLayerDist = item.V3ToV2(item.World.Hexs[indexesToMoveForward[indexesToMoveForward.Count - 1]].HexPos).magnitude;
-
-        Vector2 test = indexVec.normalized * Mathf.Clamp(Vector2.Dot(firstVec3, indexVec.normalized), firstLayerDist, LastLayerDist);
+        vecDot = Mathf.Clamp(Vector2.Dot(firstVec3, indexVec.normalized), firstLayerDist, LastLayerDist);
+        Vector2 test = indexVec.normalized * vecDot;
        // Debug.Log("Vector3 mouse pos: " + firstVec3);
        // Debug.Log("Vector3 ball pos: " + indexVec);
       //  Debug.Log("Dot product: " + Vector2.Dot(firstVec3, indexVec));
@@ -36,12 +46,53 @@ public class HexMovingState : HexBaseState
         Vector2 pos = test; 
 
         item.transform.position = new Vector3(pos.x, 0, pos.y);
-
         if (Input.GetMouseButtonUp(0))
         {
+            //item.CurrentId = item.GetNearestPoint(indexesToMoveForward);
+            SetCBOnOrbit(firstPosIndex, newIndex);
             EventManager.StartAtomMoveEndEvent(item.CurrentId);
             item.SwitchState(item.idleState);
         }
+
+    }
+    //public Vector2Int GetNearestPoint(List<Vector2Int> gridIndexes)
+    //{
+    //    Vector2Int index = item.CurrentId;
+    //    float diff = (item.World.MousePosition - item.World.Hexs[index].HexPos).magnitude;
+    //    for (int i = 0; i < gridIndexes.Count; i++)
+    //    {
+    //        float newDiff = (item.World.MousePosition - item.World.Hexs[gridIndexes[i]].HexPos).magnitude;
+    //        if (newDiff < diff)
+    //        {
+    //            diff = newDiff;
+    //            index = gridIndexes[i];
+    //        }
+    //    }
+    //    return index;
+    //}
+    private void SetCBOnOrbit(Vector2Int prevIndex, Vector2Int newIndex)
+    {
+        for (int i = 0; i < item.World.Celestals.Count; i++)
+        {
+
+            if (item.World.Celestals[i] != item && item.World.Celestals[i].CurrentId.x == newIndex.x)
+            {
+                if (item.World.AllFlexibleIndex.Contains(item.World.Celestals[i].CurrentId))
+                {
+                    item.World.Celestals[i].CurrentId = item.World.Celestals[i].UpdateCurrentMoveId(newIndex, prevIndex);
+                    item.World.Celestals[i].SetPos(item.World.Celestals[i].CurrentId);
+                    break;
+                }
+                else
+                {
+                    item.CurrentId = prevIndex;
+                    return;
+                }
+                
+            }
+            
+        }
+        item.CurrentId = newIndex;
     }
 
     private List<Vector2Int> GetIndexesToMoveForward(Vector2Int index, int layersAmount)

@@ -10,19 +10,20 @@ public class AtomMovingState : AtomBaseState
     public override void EnterState(AtomStateManager item)
     {
         this.item = item;
-        Debug.Log("Rotation enter");
+        //Debug.Log("Rotation enter");
         EventManager.AtomMoveEndEvent += SwitchState;
     }
 
     private void SwitchState(Vector2Int hexIndex)
     {
-        Debug.Log("Rotation enter2");
+        //Debug.Log("Rotation enter2");
         Vector2Int prevId = item.CurrentId;
-        Debug.Log("prevID " + item.CurrentId);
+       // Debug.Log("prevID " + item.CurrentId);
 
         Vector2Int newId = item.UpdateCurrentMoveId(hexIndex);
-        Debug.Log("currentID " + item.CurrentId);
-        SwapLayer(prevId, newId);
+        //Debug.Log("currentID " + item.CurrentId);
+        if (prevId != newId)
+            SwapLayer(prevId, newId);
         item.CurrentId = newId;
         item.SwitchState(item.idleState);
     }
@@ -42,6 +43,7 @@ public class AtomMovingState : AtomBaseState
                 else
                 {
                     item.Level++;
+                    
                     item.World.Atoms.RemoveAt(i);
                     atom.DestroyThis();
                 }
@@ -53,8 +55,27 @@ public class AtomMovingState : AtomBaseState
     public override void UpdateState(AtomStateManager item)
     {
 
+        Vector2 indexVec = V3ToV2(item.World.Hexs[item.CurrentId].HexPos).normalized;
+
+        //Vector2 firstVec3 = V3ToV2(item.World.MousePosition);
+
+        //float firstLayerDist = V3ToV2(item.World.Hexs[indexesToMoveForward[0]].HexPos).magnitude;
+        //float LastLayerDist = V3ToV2(item.World.Hexs[indexesToMoveForward[indexesToMoveForward.Count - 1]].HexPos).magnitude;
+
+        Vector2 test = indexVec.normalized * item.HexMovingState.vecDot;
+        // Debug.Log("Vector3 mouse pos: " + firstVec3);
+        // Debug.Log("Vector3 ball pos: " + indexVec);
+        //  Debug.Log("Dot product: " + Vector2.Dot(firstVec3, indexVec));
+
+        Vector2 pos = test;
+        item.transform.position = new Vector3(pos.x, 0, pos.y);
 
     }
+    public Vector2 V3ToV2(Vector3 vector)
+    {
+        return new Vector2(vector.x, vector.z);
+    }
+
     public override void FixedUpdateState(AtomStateManager item)
     {
 

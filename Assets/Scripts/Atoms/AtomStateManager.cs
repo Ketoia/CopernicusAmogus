@@ -23,13 +23,16 @@ public class AtomStateManager : MonoBehaviour
     private Vector2Int currentId;
     private Vector2Int previousCelestianBodyHexId;
     private List<Vector2> allFlexibleIndex;
+    private HexMovingState hexMovingState;
 
     public Vector2Int CurrentId { get { return currentId; } set { currentId = value; } }
     public Vector2Int PreviousCelestianBodyHexId { get { return previousCelestianBodyHexId; } set { previousCelestianBodyHexId = value; } }
     public int Level { get { return level; } set { level = value; } }
+    public HexMovingState HexMovingState { get { return hexMovingState; } set { hexMovingState = value; } }
     public List<Vector2> AllFlexibleIndex => allFlexibleIndex;
 
     public WorldStateManager World => world;
+    
 
     void Start()
     {
@@ -66,6 +69,8 @@ public class AtomStateManager : MonoBehaviour
     }
     public void SwitchState(AtomBaseState state)
     {
+        if (this == null)
+            return; 
         currentState.ExitState(this);
 
         currentState = state;
@@ -97,7 +102,7 @@ public class AtomStateManager : MonoBehaviour
         int pizzaSlice = currentId.y / currentId.x;
         int diff = pizzaSlice * layersCount;
         
-        Debug.Log(gameObject.name + " " + diff);
+        //Debug.Log(gameObject.name + " " + diff);
         return new Vector2Int(currentId.x + layersCount, currentId.y + diff);
         //currentId.x + layersCount;
         //currentId.y += diff;
@@ -107,5 +112,10 @@ public class AtomStateManager : MonoBehaviour
     public void DestroyThis()
     {
         Destroy(gameObject);
+    }
+
+    public void OnDestroy()
+    {
+        currentState = null;
     }
 }

@@ -269,6 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   world: {fileID: 1363753395}
   startPosition: {x: 2, y: 4}
+  level: 0
 --- !u!135 &199427487
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -506,6 +507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   world: {fileID: 1363753395}
   startPosition: {x: 1, y: 2}
+  level: 0
 --- !u!135 &1008698262
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -618,6 +620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   world: {fileID: 1363753395}
   startPosition: {x: 2, y: 5}
+  level: 0
 --- !u!135 &1025850818
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -730,6 +733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   world: {fileID: 1363753395}
   startPosition: {x: 2, y: 3}
+  level: 0
 --- !u!135 &1039108917
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1059,6 +1063,9 @@ MonoBehaviour:
   - {fileID: 1008698261}
   - {fileID: 1039108916}
   - {fileID: 199427486}
+  celestials:
+  - {fileID: 99318244}
+  - {fileID: 1703496512}
   levelInfos: []
 --- !u!4 &1363753396
 Transform:

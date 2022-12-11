@@ -12,7 +12,7 @@ public class WorldStateManager : MonoBehaviour
     [SerializeField] private GameObject testPrefab;
 
     [SerializeField] private List<AtomStateManager> atoms;
-
+    [SerializeField] private List<HexStateManager> celestials;
 
     [Header("Zagadki")]
     [SerializeField] private List<LevelInfo> levelInfos;
@@ -36,6 +36,7 @@ public class WorldStateManager : MonoBehaviour
 
 
     public List<AtomStateManager> Atoms => atoms;
+    public List<HexStateManager> Celestals => celestials;
     public IDictionary<Vector2, HexInfo> Hexs => hexs;
     //private float[,,] hexs = new float[9,1,3];
     public Vector3 MousePositionInScreen => mousePositionInScreen;

@@ -37,7 +37,7 @@ public class HexEntryMovingState : HexBaseState
         {
             item.SwitchState(item.idleState);
         }
-        ChangeMode(0.2f, 5);
+        ChangeMode(0.5f, 5);
 
     }
 

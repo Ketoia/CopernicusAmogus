@@ -141,4 +141,25 @@ public class HexStateManager : MonoBehaviour
 
         return newList;
     }
+    public Vector2Int UpdateCurrentMoveId(Vector2Int previousCelestianBodyHexId, Vector2Int hexIndex)
+    {
+
+        int layersCount = hexIndex.x - previousCelestianBodyHexId.x;
+
+        int pizzaSlice = currentId.y / currentId.x;
+        int diff = pizzaSlice * layersCount;
+
+        //Debug.Log(gameObject.name + " " + new Vector2Int(previousCelestianBodyHexId.x, currentId.y + diff));
+        return new Vector2Int(hexIndex.x, currentId.y + diff);
+        //currentId.x + layersCount;
+        //currentId.y += diff;
+
+    }
+    //public bool IsFlexible()
+    //{
+    //    if (world.)
+    //    {
+
+    //    }
+    //}
 }
