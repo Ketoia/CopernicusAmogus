@@ -7,11 +7,11 @@ public class Dialog : ScriptableObject
 {
     public List<DialogProperty> dialogProperties;
 
-}
+    [System.Serializable]
+    public class DialogProperty
+    {
+        public string simpleDialog;
+        public int actorIndex;
+    }
 
-[System.Serializable]
-public struct DialogProperty
-{
-    public string simpleDialog;
-    public int actorIndex;
 }
