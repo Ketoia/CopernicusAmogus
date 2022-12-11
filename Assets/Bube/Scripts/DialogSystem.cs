@@ -17,6 +17,9 @@ public class DialogSystem : MonoBehaviour
 
     public List<Actor> actors;
 
+    public Chapter chapter;
+    private int chapterIndex = 0;
+
     public Dialog dialogDebug;
     public AudioSource audioSource;
 
@@ -37,6 +40,15 @@ public class DialogSystem : MonoBehaviour
         StartCoroutine(LerpFadeout(0, 1, 1, fadeout));
         StartCoroutine(LerpFadeout(0, 1, 1, backgroundText));
         StartCoroutine(ShowDialog(dialog));
+    }
+
+    public void NextDialog()
+    {
+        if (chapterIndex > chapter.Dialogs.Count) Application.Quit();
+        
+        var dial = chapter.Dialogs[chapterIndex];
+        StartDialog(dial);
+        chapterIndex++;
     }
 
     public void StopAllDialog()

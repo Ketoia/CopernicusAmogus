@@ -67,6 +67,9 @@ public class WorldStateManager : MonoBehaviour
         currentState = idleState;
 
         currentState.EnterState(this);
+
+        MissionManager.instance.FinishQuest();
+        List<int> quest = MissionManager.instance.GenerateNewMission();
     }
 
     void Update()
