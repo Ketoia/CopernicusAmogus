@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Dialog", menuName = "Dialog", order = 1)]
 public class Dialog : ScriptableObject
 {
-    public List<DialogProperty> Dialogs;
+    public List<DialogProperty> dialogProperties;
 
 }
 

@@ -75,18 +75,18 @@ public class DialogSystem : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
 
-        for (int i = 0; i < dialog.Dialogs.Count; i++)
+        for (int i = 0; i < dialog.dialogProperties.Count; i++)
         {
             //Show new Actor
-            Actor ActualActor = actors[dialog.Dialogs[i].actorIndex];
+            Actor ActualActor = actors[dialog.dialogProperties[i].actorIndex];
             StartCoroutine(ShowTextName(ActualActor));
             ActualActor.Show();
 
             textDialog.text = "";
             yield return new WaitForSeconds(0.5f); //Wait for player to come
-            for (int j = 0; j < dialog.Dialogs[i].simpleDialog.Length; j++)
+            for (int j = 0; j < dialog.dialogProperties[i].simpleDialog.Length; j++)
             {
-                textDialog.text += dialog.Dialogs[i].simpleDialog[j];
+                textDialog.text += dialog.dialogProperties[i].simpleDialog[j];
                 yield return new WaitForSeconds(textWait);
             }
 
